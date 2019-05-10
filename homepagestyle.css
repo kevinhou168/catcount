@@ -1,0 +1,28 @@
+.header
+{
+  text-align: center;
+  font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 4em;
+  height: 25%;
+  weight: 100%;
+  color: RebeccaPurple;
+}
+
+.button
+{
+  display: inline-block;
+  font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  height: 150px;
+  width: 150px;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: Purple;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 9px #999;
+}
