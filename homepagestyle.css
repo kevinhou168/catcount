@@ -55,11 +55,12 @@ button
   border: none;
   align-items: center;
   outline: none;
+  text-decoration: none;
 }
 
 button:hover
 {
-  background-color: #D0D0D0;
+  background-color: #e5e8e7;
   border-radius: 15px;
   cursor: pointer;
   align-items: center;
@@ -68,12 +69,6 @@ button:hover
   outline: none;
   cursor: pointer;
 }
-
-td
-{
-  align-items: center;
-}
-
 
 table {
   height: 37.5%;
