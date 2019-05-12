@@ -1,28 +1,83 @@
+*
+{
+  box-sizing: border-box;
+}
+
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
 .header
 {
   text-align: center;
   font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 4em;
+  font-size: 10em;
   height: 25%;
   weight: 100%;
   color: RebeccaPurple;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
 }
 
-.button
+.top-buttons
+{
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.fake-button
 {
   display: inline-block;
-  font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", "Arial Narrow", Arial, sans-serif;
   height: 150px;
   width: 150px;
-  padding: 15px 25px;
+  margin: 35px 30px;
   font-size: 24px;
   cursor: pointer;
   text-align: center;
+  vertical-align: middle;
+  line-height: 145px;
   text-decoration: none;
   outline: none;
   color: white;
-  background-color: Purple;
+  background-color: #DB7093;
   border: none;
   border-radius: 50%;
-  box-shadow: 0 9px #999;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+button
+{
+  border: none;
+  align-items: center;
+  outline: none;
+}
+
+button:hover
+{
+  background-color: #D0D0D0;
+  border-radius: 15px;
+  cursor: pointer;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+td
+{
+  align-items: center;
+}
+
+
+table {
+  height: 37.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
