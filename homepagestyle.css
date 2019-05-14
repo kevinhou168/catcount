@@ -65,6 +65,7 @@ button
   align-items: center;
   outline: none;
   text-decoration: none;
+  background-color: white;
 }
 
 button:hover
