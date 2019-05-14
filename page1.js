@@ -39,31 +39,16 @@ var grilledchicken = {
 //dinner
 
 
-
-
 var breakfast = [scrambledeggs,
     bacon,
     porksausage,
     sweetpotatoes];
 
-
-
-
-
 $(document).ready(function () {
-
-
     breakfast.forEach(function (element) {
         var menu = `<option data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
         $("#selection").append(menu);
     });
-
-
-
-
-
-
-
     $("#selection").click(function () {
         // console.log($("#selection option:selected").text())
         $("#foodName").text($("#selection option:selected").text());
@@ -82,10 +67,9 @@ $(document).ready(function () {
         var food = '<li>' + $("#selection option:selected").text() + '</li>';
         $("#food-list").append(food);
     })
-
-
-
-
-
-
 });
+
+var protein = document.getElementById('protein');
+var calories = document.getElementById('calories');
+var fats = document.getElementById('fats');
+var carbs = document.getElementById('carbs');
