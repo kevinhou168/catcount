@@ -343,19 +343,37 @@ $(document).ready(function () {
         $("#carbs").html("Carbohydrate: " + carbs * servingSize + " g");
 
 
-        var food = "<li><span><i class='fa fa-trash '></i></span>" + $("#selection option:selected").text() + ' x ' + servingSize + '</li>';
+        var food = "<li><span><i class='fa fa-trash '></i></span>" + $("#selection option:selected").text() + ' (' + servingSize + ')</li>';
 
         $("#food-list").append(food);
     });
 
     //remove item from list
 
-    /*
+
     $("ul").on("click", "span", function (event) {
         $(this).parent().fadeOut(500, function () {
             foodName = $(this).text();
             foodName_small = foodName.replace(/ +/g, "").toLowerCase();
-            var selected_food = eval(foodName_small);
+            remove_number = foodName_small.split("(")[0];
+            serving_size_rough = foodName_small.split("(")[1];
+            servingSize = serving_size_rough.substr(0, serving_size_rough.length - 1);
+            console.log(remove_number);
+            console.log(servingSize);
+            var selected_food = eval(remove_number);
+
+
+            calories = calories - parseInt(selected_food.calories);
+            protein = protein - parseInt(selected_food.protein);
+            fats = fats - parseInt(selected_food.fats);
+            carbs = carbs - parseInt(selected_food.carbs);
+
+            //get serving size
+
+            $("#calories").html("Calories: " + calories * servingSize + " cal");
+            $("#protein").html("Protein: " + protein * servingSize + " g");
+            $("#fats").html("Fats: " + fats * servingSize + " g");
+            $("#carbs").html("Carbohydrate: " + carbs * servingSize + " g");
 
 
             $(this).remove();
@@ -365,6 +383,6 @@ $(document).ready(function () {
         event.stopPropagation();
     });
 
-    */
+
 
 });
