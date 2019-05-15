@@ -25,7 +25,6 @@
           <div id="menu-selection" class="col-lg-6">
               <div class="btn-group btn-group-toggle col-lg-6" data-toggle="buttons">
                   <label class="btn btn-secondary active">
-
                       <input type="radio" name="options" id="breakfast_btn" autocomplete="off" checked> Breakfast
                   </label>
                   <label class="btn btn-secondary">
@@ -34,6 +33,11 @@
                   <label class="btn btn-secondary">
                       <input type="radio" name="options" id="dinner_btn" autocomplete="off"> Dinner
                   </label>
+              </div>
+              <div id="foodtype">
+                <input type="button" name="types" id="vegan_btn" value="Vegan">
+                <input type="button" name="types" id="veggie_btn" value="Vegetarian">
+                <input type="button" name="types" id="gluten_btn" value="Gluten-free">
               </div>
               <select id="selection" class="form-control" multiple size="5">
 
@@ -83,7 +87,7 @@
         <p id="fats">Fats: 0</p>
         <br/>
         <p id="carbs">Carbohydrates: 0</p>
-        <button id="finish">Finish</button>
+        <button id="finish"><b>Finish</b></button>
       </footer>
       </div>
 
