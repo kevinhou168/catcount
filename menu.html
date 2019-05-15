@@ -16,91 +16,92 @@
 </head>
 
 <body>
-  <div class="header">
-    CatCount
-  </div>
-  <div class="container-fluid">
-      <div class="row" id="menu_select">
+    <div class="header">
+        CatCount
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="menu_select">
 
-          <div id="menu-selection" class="col-lg-6">
-              <div class="btn-group btn-group-toggle col-lg-6" data-toggle="buttons">
-                  <label class="btn btn-secondary active">
-                      <input type="radio" name="options" id="breakfast_btn" autocomplete="off" checked> Breakfast
-                  </label>
-                  <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="lunch_btn" autocomplete="off"> Lunch
-                  </label>
-                  <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="dinner_btn" autocomplete="off"> Dinner
-                  </label>
-              </div>
-              <div id="foodtype">
-                <input type="button" name="types" id="vegan_btn" value="Vegan">
-                <input type="button" name="types" id="veggie_btn" value="Vegetarian">
-                <input type="button" name="types" id="gluten_btn" value="Gluten-free">
-              </div>
-              <select id="selection" class="form-control" multiple size="5">
+            <div id="menu-selection" class="col-lg-6">
+                <div class="btn-group btn-group-toggle col-lg-6" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <input type="radio" name="options" id="breakfast_btn" autocomplete="off" checked> Breakfast
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="lunch_btn" autocomplete="off"> Lunch
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="dinner_btn" autocomplete="off"> Dinner
+                    </label>
+                </div>
+                <div id="foodtype">
+                    <input type="button" name="types" id="vegan_btn" value="Vegan">
+                    <input type="button" name="types" id="veggie_btn" value="Vegetarian">
+                    <input type="button" name="types" id="gluten_btn" value="Gluten-free">
+                </div>
+                <select id="selection" class="form-control" multiple size="5">
 
 
-                  <!-- append choice here -->
-                  <!--
+                    <!-- append choice here -->
+                    <!--
                   <option data-toggle="modal" data-target="#foodModal">Pizza</option>
                   -->
-              </select>
-              <!-- Modal -->
-              <div class="modal fade" id="foodModal">
-                  <div class="modal-dialog">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title">Information</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                          <div class="modal-body">
-                              <h5 id="foodName">Name</h5>
-                              <h6 id="foodCalories">Calories</h6>
-                              <h7 id="foodProtein">Protein</h7>
-                              <h8 id="foodCarbs">Carbs</h8>
-                              <h9 id="foodFats">Fats</h9>
-                              <h10 id="servingSize">Servings: </h10>
-                              <input id="stufftoadd"type=number min="1" placeholder="Serving Size" value="1">
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button id="add-item" type="button" class="btn btn-primary" data-dismiss="modal">Add item</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                </select>
+                <!-- Modal -->
+                <div class="modal fade" id="foodModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Information</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h5 id="foodName">Name</h5>
+                                <h6 id="foodCalories">Calories</h6>
+                                <h7 id="foodProtein">Protein</h7>
+                                <h8 id="foodCarbs">Carbs</h8>
+                                <h9 id="foodFats">Fats</h9>
+                                <h10 id="servingSize">Servings: </h10>
+                                <input id="stufftoadd" type=number min="1" placeholder="Serving Size" value="1">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button id="add-item" type="button" class="btn btn-primary" data-dismiss="modal">Add item</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-          </div>
+            </div>
 
-          <div id="selectedfood" class="col-lg-6">
-              <h3>Food Selected</h3>
-              <ul id="food-list"></ul>
-          </div>
-      </div>
+            <div id="selectedfood" class="col-lg-6">
+                <h3>Food Selected</h3>
+                <ul id="food-list"></ul>
+            </div>
+        </div>
 
-      <div class="row">
-      <footer id="summary">
-        <h2>Summary</h2>
-        <p id="calories">Calories: 0</p>
-        <br/>
-        <p>Protein: 0</p>
-        <br/>
-        <p>Fats: 0</p>
-        <br/>
-
-        <p>Carbohydrates: 0</p>
-        <button id="finish">Finish</button>
-      </footer>
-      </div>
-
-  </div>
+        <div class="row">
+            <footer id="summary">
+                <h2>Summary</h2>
+                <p id="calories">Calories: 0</p>
+                <br />
+                <p id="protein">Protein: 0</p>
+                <br />
+                <p id="carbs">Carbohydrates: 0</p>
+                <br />
+                <p id="fats">Fats: 0</p>
 
 
 
-</body>
-</html>
+                <button id="finish">Finish</button>
+            </footer>
+        </div>
+
+    </div>
+
+
+
+</body></html>
 <link rel="stylesheet" href="menu.css">
