@@ -197,7 +197,10 @@ $(document).ready(function () {
         //remove space and make lower case
         foodName_small = foodName.replace(/ +/g, "").toLowerCase();
         var selected_food = eval(foodName_small);
-        $(foodInfo).html("Protein: " + selected_food.protein);
+        $(foodCalories).html("Calories: " + selected_food.calories);
+        $(foodProtein).html("Protein: " + selected_food.protein);
+        $(foodCarbs).html("Carbs: " + selected_food.carbs);
+        $(foodFats).html("Fats: " + selected_food.fats);
 
 
 

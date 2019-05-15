@@ -41,6 +41,25 @@ ul,li {
 
 }
 
+#foodName{
+  display: grid;
+}
+
+#foodCalories{
+  display: grid;
+}
+
+#foodProtein{
+  display: grid;
+}
+
+#foodCarbs{
+  display: grid;
+}
+
+#foodFats{
+  display: grid;
+}
 
 #summary{
   height: 20%;
