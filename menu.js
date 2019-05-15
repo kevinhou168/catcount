@@ -348,7 +348,9 @@ $(document).ready(function () {
         $("#food-list").append(food);
     });
 
-    //remove options
+    //remove item from list
+
+    /*
     $("ul").on("click", "span", function (event) {
         $(this).parent().fadeOut(500, function () {
             foodName = $(this).text();
@@ -363,5 +365,6 @@ $(document).ready(function () {
         event.stopPropagation();
     });
 
+    */
 
 });
