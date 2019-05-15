@@ -343,8 +343,25 @@ $(document).ready(function () {
         $("#carbs").html("Carbohydrate: " + carbs * servingSize + " g");
 
 
-        var food = '<li>' + $("#selection option:selected").text() + ' x ' + servingSize + '</li>';
+        var food = "<li><span><i class='fa fa-trash '></i></span>" + $("#selection option:selected").text() + ' x ' + servingSize + '</li>';
 
         $("#food-list").append(food);
-    })
+    });
+
+    //remove options
+    $("ul").on("click", "span", function (event) {
+        $(this).parent().fadeOut(500, function () {
+            foodName = $(this).text();
+            foodName_small = foodName.replace(/ +/g, "").toLowerCase();
+            var selected_food = eval(foodName_small);
+
+
+            $(this).remove();
+
+
+        });
+        event.stopPropagation();
+    });
+
+
 });
