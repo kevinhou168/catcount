@@ -326,12 +326,16 @@ $(document).ready(function () {
         //remove space and make lower case
         foodName_small = foodName.replace(/ +/g, "").toLowerCase();
         var selected_food = eval(foodName_small);
-        $(foodInfo).html("Protein: " + selected_food.protein);
+        $(foodCalories).html("Calories: " + selected_food.calories);
+        $(foodProtein).html("Protein: " + selected_food.protein);
+        $(foodCarbs).html("Carbs: " + selected_food.carbs);
+        $(foodFats).html("Fats: " + selected_food.fats);
 
     })
 
 
     $("#add-item").click(function () {
+      var servingSize = document.getElementById('servingSize').value;  
       foodName = $("#selection option:selected").text();
       //remove space and make lower case
       foodName_small = foodName.replace(/ +/g, "").toLowerCase();
@@ -344,8 +348,3 @@ $(document).ready(function () {
         $("#food-list").append(food);
     })
 });
-
-var protein = document.getElementById('protein');
-var calories = document.getElementById('calories');
-var fats = document.getElementById('fats');
-var carbs = document.getElementById('carbs');

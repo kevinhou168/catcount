@@ -37,6 +37,31 @@ ul,li {
   border-color: white;
 }
 
+
+.btn{
+
+}
+
+#foodName{
+  display: grid;
+}
+
+#foodCalories{
+  display: grid;
+}
+
+#foodProtein{
+  display: grid;
+}
+
+#foodCarbs{
+  display: grid;
+}
+
+#foodFats{
+  display: grid;
+}
+
 #summary{
   margin-top: 20px;
   height: 20%;
