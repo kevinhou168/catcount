@@ -208,6 +208,8 @@ $(document).ready(function () {
 
 
     $("#add-item").click(function () {
+      var servingSize = document.getElementByID("servinngSize"); //serving size inputted
+
       foodName = $("#selection option:selected").text();
       //remove space and make lower case
       foodName_small = foodName.replace(/ +/g, "").toLowerCase();
