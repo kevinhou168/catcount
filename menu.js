@@ -6,6 +6,9 @@ var scrambledeggs = {
     protein: "15 g",
     carbs: "5 g",
     fats: "7 g",
+    isVegan: false,
+    isVeggie: true,
+    isNoGluten: false,
 };
 
 var bacon = {
@@ -14,6 +17,9 @@ var bacon = {
     protein: "7 g",
     carbs: "5 g",
     fats: "11 g",
+    isVegan: false,
+    isVeggie: false,
+    isNoGluten: true,
 };
 
 var porksausage = {
@@ -22,6 +28,9 @@ var porksausage = {
     protein: "8 g",
     carbs: "5 g",
     fats: "6 g",
+    isVegan: false,
+    isVeggie: false,
+    isNoGluten: false,
 };
 
 var sweetpotatoes = {
@@ -30,6 +39,9 @@ var sweetpotatoes = {
     protein: "2 g",
     carbs: "5 g",
     fats: "3 g",
+    isVegan: true,
+    isVeggie: true,
+    isNoGluten: true,
 };
 
 var oats = {
@@ -38,6 +50,9 @@ var oats = {
     protein: "2 g",
     carbs: "20g",
     fats: "1 g",
+    isVegan: true,
+    isVeggie: true,
+    isNoGluten: true,
 };
 
 
@@ -49,6 +64,9 @@ var grilledchicken = {
     protein: "24 g",
     carbs: "5 g",
     fats: "4 g",
+    isVegan: false,
+    isVeggie: false,
+    isNoGluten: true,
 };
 
 var porkloin = {
@@ -57,6 +75,9 @@ var porkloin = {
   protein: "22 g",
   carbs: "4 g",
   fats: "8 g",
+  isVegan: false,
+  isVeggie: false,
+  isNoGluten: true,
 };
 
 var rice = {
@@ -65,6 +86,9 @@ var rice = {
   protein: "1 g",
   carbs: "10 g",
   fats: "2 g",
+  isVegan: true,
+  isVeggie: true,
+  isNoGluten: true,
 }
 
 var corn = {
@@ -73,6 +97,9 @@ var corn = {
   protein: "2 g",
   carbs: "18 g",
   fats: "3 g",
+  isVegan: true,
+  isVeggie: true,
+  isNoGluten: true,
 };
 
 var zucchini = {
@@ -81,6 +108,9 @@ var zucchini = {
   protein: "0 g",
   carbs: "5 g",
   fats: "0 g",
+  isVegan: true,
+  isVeggie: true,
+  isNoGluten: true,
 };
 
 
@@ -92,6 +122,9 @@ var salmon = {
   protein: "23 g",
   carbs: "8 g",
   fats: "7 g",
+  isVegan: false,
+  isVeggie: false,
+  isNoGluten: false,
 };
 
 var alfredo = {
@@ -100,6 +133,9 @@ var alfredo = {
   protein: "6 g",
   carbs: "32 g",
   fats: "5 g",
+  isVegan: false,
+  isVeggie: true,
+  isNoGluten: true,
 }
 
 var broccoli = {
@@ -108,6 +144,9 @@ var broccoli = {
   protein: "1 g",
   carbs: "4 g",
   fats: "0 g",
+  isVegan: true,
+  isVeggie: true,
+  isNoGluten: true,
 };
 
 var pizza= {
@@ -116,6 +155,9 @@ var pizza= {
   protein: "11 g",
   carbs: "23 g",
   fats: "17 g",
+  isVegan: false,
+  isVeggie: true,
+  isNoGluten: false,
 };
 
 var greenbeans = {
@@ -124,6 +166,9 @@ var greenbeans = {
   protein: "1 g",
   carbs: "3 g",
   fats: "1 g",
+  isVegan: true,
+  isVeggie: true,
+  isNoGluten: true,
 };
 
 var calories = 0;
@@ -152,8 +197,6 @@ $(document).ready(function () {
             $("#selection").append(menu);
         });
       }
-
-
     })
 
     $("#lunch_btn").change(function (){
@@ -167,8 +210,6 @@ $(document).ready(function () {
         });
       }
 
-
-
     })
 
     $("#dinner_btn").change(function (){
@@ -181,12 +222,100 @@ $(document).ready(function () {
             $("#selection").append(menu);
         });
       }
-
-
-
     })
 
+    $("#vegan_btn").click(function (){
+      $("#selection .food_option").remove();
 
+        if ($("#breakfast_btn").is(':checked')) {
+          breakfast.forEach(function (element) {
+              if(element.isVegan){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+
+        else if ($("#lunch_btn").is(':checked')) {
+          lunch.forEach(function (element) {
+              if(element.isVegan){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+
+        else if ($("#dinner_btn").is(':checked')) {
+          dinner.forEach(function (element) {
+              if(element.isVegan){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+    })
+
+    $("#veggie_btn").click(function (){
+      $("#selection .food_option").remove();
+
+        if ($("#breakfast_btn").is(':checked')) {
+          breakfast.forEach(function (element) {
+              if(element.isVeggie){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+
+        else if ($("#lunch_btn").is(':checked')) {
+          lunch.forEach(function (element) {
+              if(element.isVeggie){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+
+        else if ($("#dinner_btn").is(':checked')) {
+          dinner.forEach(function (element) {
+              if(element.isVeggie){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+    })
+
+    $("#gluten_btn").click(function (){
+      $("#selection .food_option").remove();
+
+        if ($("#breakfast_btn").is(':checked')) {
+          breakfast.forEach(function (element) {
+              if(element.isNoGluten){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+
+        else if ($("#lunch_btn").is(':checked')) {
+          lunch.forEach(function (element) {
+              if(element.isNoGluten){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+
+        else if ($("#dinner_btn").is(':checked')) {
+          dinner.forEach(function (element) {
+              if(element.isNoGluten){
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                $("#selection").append(menu);
+              }
+          });
+        }
+    })
 
 
 
@@ -201,8 +330,6 @@ $(document).ready(function () {
         $(foodProtein).html("Protein: " + selected_food.protein);
         $(foodCarbs).html("Carbs: " + selected_food.carbs);
         $(foodFats).html("Fats: " + selected_food.fats);
-
-
 
     })
 
