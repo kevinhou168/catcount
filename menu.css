@@ -19,6 +19,9 @@ body {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
+#menu-selection {
+  text-align: center;
+}
 #top-left {
     float: left;
     background: black;
@@ -97,6 +100,11 @@ span {
     margin-left: 20px;
 }
 
+#summary h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 #finish {
     background-color: thistle;
     border: none;
@@ -109,7 +117,7 @@ span {
     border-radius: 50%;
     float: right;
     margin-right: 20px;
-    margin-top: -10px;
+    margin-top: -75px;
     font-variant: small-caps;
 }
 
@@ -130,4 +138,24 @@ input[type="button"] {
     border-radius: 50%;
     border: none;
     background-color: thistle;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+input[type="button"]:hover {
+  opacity: .6;
+}
+
+input[type="button"]:active{
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+input[type="button"]:focus{
+  background-color: lavender;
+  outline: none;
+}
+#foodtype {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
