@@ -25,27 +25,25 @@ body {
 }
 
 ul {
-
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
 
 li {
     margin: 0;
     padding: 0;
     background: #fff;
-    color: #666;
-
 }
 
 
 li:hover span {
     width: 40px;
     opacity: 1.0;
+    cursor: pointer;
+    border-radius: 15%;
 }
-
 
 .container-fluid {
     margin-top: 30px;
@@ -54,19 +52,20 @@ li:hover span {
 .btn {
     background-color: pink;
     border-color: white;
+    cursor: pointer;
 }
 
 
 span {
-    background: #e74c3c;
-    height: 40px;
-    margin-right: 20px;
-    text-align: center;
-    color: white;
-    width: 0;
-    display: inline-block;
-    transition: 0.2s linear;
-    opacity: 0;
+  background: #e74c3c;
+  height: 2em;
+  margin-right: 1em;
+  text-align: center;
+  color: white;
+  width: 0;
+  display: inline-block;
+  transition: 0.2s linear;
+  opacity: 0;
 }
 
 #foodName {
@@ -111,6 +110,7 @@ span {
     margin-right: 20px;
     margin-top: -10px;
     font-variant: small-caps;
+    outline:0;
 }
 
 #foodModal {
@@ -130,4 +130,5 @@ input[type="button"] {
     border-radius: 50%;
     border: none;
     background-color: thistle;
+    outline:0;
 }
