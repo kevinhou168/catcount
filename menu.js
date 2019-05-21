@@ -332,7 +332,7 @@ $(document).ready(function () {
         //remove space and make lower case
         foodName_small = foodName.replace(/ +/g, "").toLowerCase();
         var selected_food = eval(foodName_small);
-
+        var servingSize = document.getElementById('stufftoadd').value;
         $(servingText).html("Serving Size: " + selected_food.serving);
         $(foodCalories).html("Calories: " + selected_food.calories);
         $(foodProtein).html("Protein: " + selected_food.protein);
@@ -364,6 +364,10 @@ $(document).ready(function () {
 
         $("#food-list").append(food);
         // defaults back to 1
+        document.getElementById('stufftoadd').value = 1;
+    });
+
+    $("#close-item").click(function () {
         document.getElementById('stufftoadd').value = 1;
     });
 
