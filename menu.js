@@ -1,5 +1,4 @@
 //breakfast
-
 var scrambledeggs = {
     name: "Scrambled Eggs",
     calories: "210",
@@ -333,9 +332,16 @@ $(document).ready(function () {
         var selected_food = eval(foodName_small);
 
         calories = calories + parseInt(selected_food.calories);
+        sessionStorage.setItem("calories", JSON.stringify(calories));
+
         protein = protein + parseInt(selected_food.protein);
+        sessionStorage.setItem("protein", JSON.stringify(protein));
+
         fats = fats + parseInt(selected_food.fats);
+        sessionStorage.setItem("fats", JSON.stringify(fats));
+
         carbs = carbs + parseInt(selected_food.carbs);
+        sessionStorage.setItem("carbs", JSON.stringify(carbs));
 
         $("#calories").html("Calories: " + calories * servingSize + " cal");
         $("#protein").html("Protein: " + protein * servingSize + " g");
@@ -375,14 +381,11 @@ $(document).ready(function () {
             $("#fats").html("Fats: " + fats * servingSize + " g");
             $("#carbs").html("Carbohydrate: " + carbs * servingSize + " g");
 
-
             $(this).remove();
 
 
         });
         event.stopPropagation();
     });
-
-
 
 });
