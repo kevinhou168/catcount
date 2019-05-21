@@ -9,6 +9,7 @@ var scrambledeggs = {
     isVegan: false,
     isVeggie: true,
     isNoGluten: false,
+    serving: "2 Eggs",
 };
 
 var bacon = {
@@ -20,6 +21,7 @@ var bacon = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
+    serving: "1 Strip",
 };
 
 var porksausage = {
@@ -31,6 +33,7 @@ var porksausage = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: false,
+    serving: "1 Link",
 };
 
 var sweetpotatoes = {
@@ -42,6 +45,7 @@ var sweetpotatoes = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
+    serving: "130 grams",
 };
 
 var oats = {
@@ -53,6 +57,7 @@ var oats = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
+    serving: "40 grams",
 };
 
 
@@ -67,6 +72,7 @@ var grilledchicken = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
+    serving: "1 Breast",
 };
 
 var porkloin = {
@@ -78,6 +84,7 @@ var porkloin = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
+    serving: "1 Loin",
 };
 
 var rice = {
@@ -89,6 +96,7 @@ var rice = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
+    serving: "130 grams",
 }
 
 var corn = {
@@ -100,6 +108,7 @@ var corn = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
+    serving: "91 grams",
 };
 
 var zucchini = {
@@ -111,6 +120,7 @@ var zucchini = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
+    serving: "1 Zucchini, chopped",
 };
 
 
@@ -125,6 +135,7 @@ var salmon = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: false,
+    serving: "1 Filet",
 };
 
 var alfredo = {
@@ -136,6 +147,7 @@ var alfredo = {
     isVegan: false,
     isVeggie: true,
     isNoGluten: true,
+    serving: "200 grams",
 }
 
 var broccoli = {
@@ -147,6 +159,7 @@ var broccoli = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
+    serving: "80 grams",
 };
 
 var pizza = {
@@ -158,6 +171,7 @@ var pizza = {
     isVegan: false,
     isVeggie: true,
     isNoGluten: false,
+    serving: "1 Slice",
 };
 
 var greenbeans = {
@@ -169,6 +183,7 @@ var greenbeans = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
+    serving: "110 grams",
 };
 
 var calories = 0;
@@ -317,11 +332,12 @@ $(document).ready(function () {
         //remove space and make lower case
         foodName_small = foodName.replace(/ +/g, "").toLowerCase();
         var selected_food = eval(foodName_small);
+
+        $(servingText).html("Serving Size: " + selected_food.serving);
         $(foodCalories).html("Calories: " + selected_food.calories);
         $(foodProtein).html("Protein: " + selected_food.protein);
         $(foodCarbs).html("Carbs: " + selected_food.carbs);
         $(foodFats).html("Fats: " + selected_food.fats);
-
     })
 
 
@@ -337,6 +353,7 @@ $(document).ready(function () {
         fats = fats + parseInt(selected_food.fats);
         carbs = carbs + parseInt(selected_food.carbs);
 
+
         $("#calories").html("Calories: " + calories * servingSize + " cal");
         $("#protein").html("Protein: " + protein * servingSize + " g");
         $("#fats").html("Fats: " + fats * servingSize + " g");
@@ -346,6 +363,8 @@ $(document).ready(function () {
         var food = "<li><span><i class='fa fa-trash '></i></span>" + $("#selection option:selected").text() + ' (' + servingSize + ')</li>';
 
         $("#food-list").append(food);
+        // defaults back to 1
+        document.getElementById('stufftoadd').value = 1;
     });
 
     //remove item from list
