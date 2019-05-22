@@ -19,6 +19,14 @@ swimtime = yourcalories/swimcalories;
 jogtime = yourcalories/jogcalories;
 cycletime = yourcalories/cyclecalories;
 
+// var test = document.getElementById("test");
+// var testDiv = document.createElement('div');
+// var title = `<div>${yourcalories}</div>`
+
+$("#test").text(yourcalories);
+// testDiv.innerHTML = title;
+// console.log(testDiv);
+// test.appendChild(testDiv);
 
 
 // Draw the chart and set the chart values
@@ -32,10 +40,11 @@ function drawPieChart() {
 ]);
   // Optional; add a title and set the width and height of the chart
   var options = {
-    'width':400,
-    'height':300,
+    'width':500,
+    'height':400,
     colors: ['#ce93d8', '#b39ddb', '#9575cd', '#ab47bc', '#7e57c2'],
-    chartArea:{left:195,top:20, width:'100%', height:'100%'}
+    chartArea:{left:195,top:20, width:'100%', height:'100%'},
+    legend: {postion: 'top', alignment:'center'}
   };
 
   // Display the chart inside the <div> element with id="piechart"
@@ -56,6 +65,7 @@ function drawBarChart() {
   var options = {
     title:'How to Burn ' + yourcalories + ' calories',
     titleTextStyle: {color: "#ab47bc"},
+    // titlePosition: 'none',
     width:800,
     height:300,
     legend: 'none',
@@ -64,7 +74,6 @@ function drawBarChart() {
           duration: 1000,
           easing: 'In',
           startup: true
-
       }
   };
 
