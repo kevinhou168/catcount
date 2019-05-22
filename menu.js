@@ -8,7 +8,7 @@ var scrambledeggs = {
     isVegan: false,
     isVeggie: true,
     isNoGluten: false,
-    serving: "2 Eggs"
+    serving: "2 Eggs",
 };
 
 var bacon = {
@@ -20,7 +20,7 @@ var bacon = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
-    serving: "1 Strip"
+    serving: "1 Strip",
 };
 
 var porksausage = {
@@ -32,7 +32,7 @@ var porksausage = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: false,
-    serving: "1 Link"
+    serving: "1 Link",
 };
 
 var sweetpotatoes = {
@@ -44,7 +44,7 @@ var sweetpotatoes = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
-    serving: "130 grams"
+    serving: "130 grams",
 };
 
 var oats = {
@@ -56,8 +56,9 @@ var oats = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
-    serving: "40 grams"
+    serving: "40 grams",
 };
+
 
 //lunch
 
@@ -70,7 +71,7 @@ var grilledchicken = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
-    serving: "1 Breast"
+    serving: "1 Breast",
 };
 
 var porkloin = {
@@ -82,7 +83,7 @@ var porkloin = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
-    serving: "1 Loin"
+    serving: "1 Loin",
 };
 
 var rice = {
@@ -94,8 +95,8 @@ var rice = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
-    serving: "130 grams"
-};
+    serving: "130 grams",
+}
 
 var corn = {
     name: "Corn",
@@ -106,7 +107,7 @@ var corn = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
-    serving: "91 grams"
+    serving: "91 grams",
 };
 
 var zucchini = {
@@ -118,8 +119,9 @@ var zucchini = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
-    serving: "1 Zucchini, chopped"
+    serving: "1 Zucchini, chopped",
 };
+
 
 //dinner
 
@@ -132,7 +134,7 @@ var salmon = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: false,
-    serving: "1 Filet"
+    serving: "1 Filet",
 };
 
 var alfredo = {
@@ -144,8 +146,8 @@ var alfredo = {
     isVegan: false,
     isVeggie: true,
     isNoGluten: true,
-    serving: "200 grams"
-};
+    serving: "200 grams",
+}
 
 var broccoli = {
     name: "Broccoli",
@@ -156,7 +158,7 @@ var broccoli = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
-    serving: "80 grams"
+    serving: "80 grams",
 };
 
 var pizza = {
@@ -168,7 +170,7 @@ var pizza = {
     isVegan: false,
     isVeggie: true,
     isNoGluten: false,
-    serving: "1 Slice"
+    serving: "1 Slice",
 };
 
 var greenbeans = {
@@ -180,13 +182,18 @@ var greenbeans = {
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
-    serving: "110 grams"
+    serving: "110 grams",
 };
 
 var calories = 0;
 var protein = 0;
 var fats = 0;
 var carbs = 0;
+
+var totalcal = 0;
+var totalprotein = 0;
+var totalfats = 0;
+var totalcarbs = 0;
 
 // meal times
 var breakfast = [scrambledeggs, bacon, porksausage, sweetpotatoes, oats];
@@ -196,289 +203,217 @@ var lunch = [grilledchicken, porkloin, rice, corn, zucchini];
 var dinner = [salmon, alfredo, broccoli, pizza, greenbeans];
 
 $(document).ready(function () {
-    for (var i = 0; i < breakfast.length; i++) {
-        var menu = `<option class="food_option" value="${i}" data-toggle="modal" data-target="#foodModal">${
-      breakfast[i].name
-    }</option>`;
-        $("#selection").append(menu);
-    }
 
-    $("#breakfast").change(function () {
+    breakfast.forEach(function (element) {
+        var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+        $("#selection").append(menu);
+    });
+
+    $("#breakfast_btn").change(function () {
         $("#selection .food_option").remove();
         console.log("breakfast pressed");
 
-        if ($(this).is(":checked")) {
-            for (var i = 0; i < breakfast.length; i++) {
-                var menu = `<option class="food_option" value="${i}" data-toggle="modal" data-target="#foodModal">${
-          breakfast[i].name
-        }</option>`;
+        if ($(this).is(':checked')) {
+            breakfast.forEach(function (element) {
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
                 $("#selection").append(menu);
-            }
+            });
         }
-    });
+    })
 
-    $("#lunch").change(function () {
+    $("#lunch_btn").change(function () {
         $("#selection .food_option").remove();
         console.log("lunch pressed");
 
-        if ($(this).is(":checked")) {
-            for (var i = 0; i < lunch.length; i++) {
-                var menu = `<option class="food_option" value="${i}" data-toggle="modal" data-target="#foodModal">${
-          lunch[i].name
-        }</option>`;
+        if ($(this).is(':checked')) {
+            lunch.forEach(function (element) {
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
                 $("#selection").append(menu);
-            }
+            });
         }
-    });
 
-    $("#dinner").change(function () {
+    })
+
+    $("#dinner_btn").change(function () {
         $("#selection .food_option").remove();
         console.log("dinner pressed");
 
-        if ($(this).is(":checked")) {
-            for (var i = 0; i < dinner.length; i++) {
-                var menu = `<option class="food_option" value="${i}" data-toggle="modal" data-target="#foodModal">${
-          dinner[i].name
-        }</option>`;
+        if ($(this).is(':checked')) {
+            dinner.forEach(function (element) {
+                var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
                 $("#selection").append(menu);
-            }
+            });
         }
-    });
+    })
+
+    $("#vegan_btn").click(function () {
+        $("#selection .food_option").remove();
+
+        if ($("#breakfast_btn").is(':checked')) {
+            breakfast.forEach(function (element) {
+                if (element.isVegan) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        } else if ($("#lunch_btn").is(':checked')) {
+            lunch.forEach(function (element) {
+                if (element.isVegan) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        } else if ($("#dinner_btn").is(':checked')) {
+            dinner.forEach(function (element) {
+                if (element.isVegan) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        }
+    })
+
+    $("#veggie_btn").click(function () {
+        $("#selection .food_option").remove();
+
+        if ($("#breakfast_btn").is(':checked')) {
+            breakfast.forEach(function (element) {
+                if (element.isVeggie) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        } else if ($("#lunch_btn").is(':checked')) {
+            lunch.forEach(function (element) {
+                if (element.isVeggie) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        } else if ($("#dinner_btn").is(':checked')) {
+            dinner.forEach(function (element) {
+                if (element.isVeggie) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        }
+    })
+
+    $("#gluten_btn").click(function () {
+        $("#selection .food_option").remove();
+
+        if ($("#breakfast_btn").is(':checked')) {
+            breakfast.forEach(function (element) {
+                if (element.isNoGluten) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        } else if ($("#lunch_btn").is(':checked')) {
+            lunch.forEach(function (element) {
+                if (element.isNoGluten) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        } else if ($("#dinner_btn").is(':checked')) {
+            dinner.forEach(function (element) {
+                if (element.isNoGluten) {
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
+                    $("#selection").append(menu);
+                }
+            });
+        }
+    })
 
     $("#selection").click(function () {
-        var selected_menu = parseInt($("#selection option:selected").val());
-        var selected_meal = eval($("input[name=options]:checked").attr("id"));
+        // console.log($("#selection option:selected").text())
+        $("#foodName").text($("#selection option:selected").text());
+        foodName = $("#selection option:selected").text();
+        //remove space and make lower case
+        foodName_small = foodName.replace(/ +/g, "").toLowerCase();
+        var selected_food = eval(foodName_small);
+        var servingSize = document.getElementById('stufftoadd').value;
+        $(servingText).html("Serving Size: " + selected_food.serving);
+        $(foodCalories).html("Calories: " + selected_food.calories);
+        $(foodProtein).html("Protein: " + selected_food.protein);
+        $(foodCarbs).html("Carbs: " + selected_food.carbs);
+        $(foodFats).html("Fats: " + selected_food.fats);
+    })
 
-        $(servingText).html(
-            "Serving Size: " + selected_meal[selected_menu].serving
-        );
-        $(foodCalories).html("Calories: " + selected_meal[selected_menu].calories);
-        $(foodProtein).html("Protein: " + selected_meal[selected_menu].protein);
-        $(foodCarbs).html("Carbs: " + selected_meal[selected_menu].carbs);
-        $(foodFats).html("Fats: " + selected_meal[selected_menu].fats);
-    });
 
     $("#add-item").click(function () {
-        var servingSize = document.getElementById("stufftoadd").value;
+        var servingSize = document.getElementById('stufftoadd').value;
+        foodName = $("#selection option:selected").text();
+        //remove space and make lower case
+        foodName_small = foodName.replace(/ +/g, "").toLowerCase();
+        var selected_food = eval(foodName_small);
 
-        var selected_menu = parseInt($("#selection option:selected").val());
-        var selected_meal = eval($("input[name=options]:checked").attr("id"));
+        calories = calories + parseInt(selected_food.calories);
+        totalcal = totalcal + (parseInt(selected_food.calories) * servingSize);
+        sessionStorage.setItem("calories", JSON.stringify(totalcal));
 
-        calories = calories + parseInt(selected_meal[selected_menu].calories);
-        sessionStorage.setItem("calories", JSON.stringify(calories));
+        protein = protein + parseInt(selected_food.protein);
+        totalprotein = totalprotein + (parseInt(selected_food.protein) * servingSize);
+        sessionStorage.setItem("protein", JSON.stringify(totalprotein));
 
-        protein = protein + parseInt(selected_meal[selected_menu].protein);
-        sessionStorage.setItem("protein", JSON.stringify(protein));
+        fats = fats + parseInt(selected_food.fats);
+        totalfats = totalfats + (parseInt(selected_food.fats) * servingSize);
+        sessionStorage.setItem("fats", JSON.stringify(totalfats));
 
-        fats = fats + parseInt(selected_meal[selected_menu].fats);
-        sessionStorage.setItem("fats", JSON.stringify(fats));
+        carbs = carbs + parseInt(selected_food.carbs);
+        totalcarbs = totalcarbs + (parseInt(selected_food.carbs) * servingSize);
+        sessionStorage.setItem("carbs", JSON.stringify(totalcarbs));
 
-        carbs = carbs + parseInt(selected_meal[selected_menu].carbs);
-        sessionStorage.setItem("carbs", JSON.stringify(carbs));
 
         $("#calories").html("Calories: " + calories * servingSize + " cal");
         $("#protein").html("Protein: " + protein * servingSize + " g");
         $("#fats").html("Fats: " + fats * servingSize + " g");
         $("#carbs").html("Carbohydrate: " + carbs * servingSize + " g");
 
-        var food =
-            "<li><span><i class='fa fa-trash '></i></span>" +
-            $("#selection option:selected").text() +
-            " (" +
-            servingSize +
-            ")</li>";
+
+        var food = "<li><span><i class='fa fa-trash '></i></span>" + $("#selection option:selected").text() + ' (' + servingSize + ')</li>';
 
         $("#food-list").append(food);
         // defaults back to 1
-        document.getElementById("stufftoadd").value = 1;
+        document.getElementById('stufftoadd').value = 1;
     });
 
     $("#close-item").click(function () {
-        document.getElementById("stufftoadd").value = 1;
+        document.getElementById('stufftoadd').value = 1;
     });
 
     //remove item from list
-    $("#vegan_btn").click(function () {
-        $("#selection .food_option").remove();
-
-        if ($("#breakfast_btn").is(":checked")) {
-            breakfast.forEach(function (element) {
-                if (element.isVegan) {
-                    var menu = `
-            <option
-              class="food_option"
-              data-toggle="modal"
-              data-target="#foodModal"
-            >
-              ${element.name}
-            </option>
-          `;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#lunch_btn").is(":checked")) {
-            lunch.forEach(function (element) {
-                if (element.isVegan) {
-                    var menu = `<
-                        option class = "food_option"
-                        data - toggle = "modal"
-                        data - target = "#foodModal" >
-                        $ {
-                            element.name
-                        } <
-                        /option>
-                    `;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#dinner_btn").is(":checked")) {
-            dinner.forEach(function (element) {
-                if (element.isVegan) {
-                    var menu = `<
-                        option class = "food_option"
-                        data - toggle = "modal"
-                        data - target = "#foodModal" >
-                        $ {
-                            element.name
-                        } <
-                        /option>
-                    `;
-                    $("#selection").append(menu);
-                }
-            });
-        }
-    });
-
-    $("#veggie_btn").click(function () {
-        $("#selection .food_option").remove();
-
-        if ($("#breakfast_btn").is(":checked")) {
-            breakfast.forEach(function (element) {
-                if (element.isVeggie) {
-                    var menu = `<
-                        option class = "food_option"
-                        data - toggle = "modal"
-                        data - target = "#foodModal" >
-                        $ {
-                            element.name
-                        } <
-                        /option>
-                    `;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#lunch_btn").is(":checked")) {
-            lunch.forEach(function (element) {
-                if (element.isVeggie) {
-                    var menu = `<
-                        option class = "food_option"
-                        data - toggle = "modal"
-                        data - target = "#foodModal" >
-                        $ {
-                            element.name
-                        } <
-                        /option>
-                    `;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#dinner_btn").is(":checked")) {
-            dinner.forEach(function (element) {
-                if (element.isVeggie) {
-                    var menu = `<
-                        option class = "food_option"
-                        data - toggle = "modal"
-                        data - target = "#foodModal" >
-                        $ {
-                            element.name
-                        } <
-                        /option>
-                    `;
-                    $("#selection").append(menu);
-                }
-            });
-        }
-    });
-
-    $("#gluten_btn").click(function () {
-        $("#selection .food_option").remove();
-
-        if ($("#breakfast_btn").is(":checked")) {
-            breakfast.forEach(function (element) {
-                if (element.isNoGluten) {
-                    var menu = `<
-                        option class = "food_option"
-                        data - toggle = "modal"
-                        data - target = "#foodModal" >
-                        $ {
-                            element.name
-                        } <
-                        /option>
-                    `;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#lunch_btn").is(":checked")) {
-            lunch.forEach(function (element) {
-                if (element.isNoGluten) {
-                    var menu = `<
-                        option class = "food_option"
-                        data - toggle = "modal"
-                        data - target = "#foodModal" >
-                        $ {
-                            element.name
-                        } <
-                        /option>
-                    `;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#dinner_btn").is(":checked")) {
-            dinner.forEach(function (element) {
-                if (element.isNoGluten) {
-                    var menu = `<
-                        option class = "food_option"
-                        data - toggle = "modal"
-                        data - target = "#foodModal" >
-                        $ {
-                            element.name
-                        } <
-                        /option>
-                    `;
-                    $("#selection").append(menu);
-                }
-            });
-        }
-    });
-
     $("ul").on("click", "span", function (event) {
-        $(this)
-            .parent()
-            .fadeOut(500, function () {
-                getFood = $(this).text();
-                food_small = getFood.replace(/ +/g, "").toLowerCase();
-                foodName = food_small.split("(")[0];
-                serving_size_rough = food_small.split("(")[1];
-                servingSize = serving_size_rough.substr(
-                    0,
-                    serving_size_rough.length - 1
-                );
-                var selected_food = eval(foodName);
+        $(this).parent().fadeOut(500, function () {
+            foodName = $(this).text();
+            foodName_small = foodName.replace(/ +/g, "").toLowerCase();
+            remove_number = foodName_small.split("(")[0];
+            serving_size_rough = foodName_small.split("(")[1];
+            servingSize = serving_size_rough.substr(0, serving_size_rough.length - 1);
+            console.log(remove_number);
+            console.log(servingSize);
+            var selected_food = eval(remove_number);
 
-                calories = calories - parseInt(selected_food.calories);
-                protein = protein - parseInt(selected_food.protein);
-                fats = fats - parseInt(selected_food.fats);
-                carbs = carbs - parseInt(selected_food.carbs);
 
-                //get serving size
+            calories = calories - parseInt(selected_food.calories);
+            protein = protein - parseInt(selected_food.protein);
+            fats = fats - parseInt(selected_food.fats);
+            carbs = carbs - parseInt(selected_food.carbs);
 
-                $("#calories").html("Calories: " + calories * servingSize + " cal");
-                $("#protein").html("Protein: " + protein * servingSize + " g");
-                $("#fats").html("Fats: " + fats * servingSize + " g");
-                $("#carbs").html("Carbohydrate: " + carbs * servingSize + " g");
+            //get serving size
 
-                $(this).remove();
-            });
+            $("#calories").html("Calories: " + calories * servingSize + " cal");
+            $("#protein").html("Protein: " + protein * servingSize + " g");
+            $("#fats").html("Fats: " + fats * servingSize + " g");
+            $("#carbs").html("Carbohydrate: " + carbs * servingSize + " g");
+
+            $(this).remove();
+
+
+        });
         event.stopPropagation();
     });
+
 });

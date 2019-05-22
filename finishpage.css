@@ -1,6 +1,9 @@
-* {
+ * {
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+  /* border: 1px solid #ccc;
+  display: inline;
+  float: left; */
 }
 
 h1{
@@ -8,8 +11,20 @@ h1{
   text-align: center;
 }
 
-#piechart{
-  width: 60%;
-  height: 60%;
-  margin: 0;
+body {
+  width: 100%;
+}
+
+#datagraphs {
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+table, tbody, tr{
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  margin-right: 0;
 }
