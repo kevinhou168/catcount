@@ -252,18 +252,17 @@ $(document).ready(function () {
 
 
     $("#vegan_btn").click(function () {
+
         $("#selection .food_option").remove();
 
-        if ($("#breakfast_btn").is(":checked")) {
+        if ($("#breakfast").is(":checked")) {
             breakfast.forEach(function (element) {
                 if (element.isVegan) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
+                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
                     $("#selection").append(menu);
                 }
             });
-        } else if ($("#lunch_btn").is(":checked")) {
+        } else if ($("#lunch").is(":checked")) {
             lunch.forEach(function (element) {
                 if (element.isVegan) {
                     var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
@@ -272,7 +271,7 @@ $(document).ready(function () {
                     $("#selection").append(menu);
                 }
             });
-        } else if ($("#dinner_btn").is(":checked")) {
+        } else if ($("#dinner").is(":checked")) {
             dinner.forEach(function (element) {
                 if (element.isVegan) {
                     var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
@@ -287,7 +286,7 @@ $(document).ready(function () {
     $("#veggie_btn").click(function () {
         $("#selection .food_option").remove();
 
-        if ($("#breakfast_btn").is(":checked")) {
+        if ($("#breakfast").is(":checked")) {
             breakfast.forEach(function (element) {
                 if (element.isVeggie) {
                     var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
@@ -296,7 +295,7 @@ $(document).ready(function () {
                     $("#selection").append(menu);
                 }
             });
-        } else if ($("#lunch_btn").is(":checked")) {
+        } else if ($("#lunch").is(":checked")) {
             lunch.forEach(function (element) {
                 if (element.isVeggie) {
                     var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
@@ -305,7 +304,7 @@ $(document).ready(function () {
                     $("#selection").append(menu);
                 }
             });
-        } else if ($("#dinner_btn").is(":checked")) {
+        } else if ($("#dinner").is(":checked")) {
             dinner.forEach(function (element) {
                 if (element.isVeggie) {
                     var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
@@ -320,7 +319,7 @@ $(document).ready(function () {
     $("#gluten_btn").click(function () {
         $("#selection .food_option").remove();
 
-        if ($("#breakfast_btn").is(":checked")) {
+        if ($("#breakfast").is(":checked")) {
             breakfast.forEach(function (element) {
                 if (element.isNoGluten) {
                     var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
@@ -329,7 +328,7 @@ $(document).ready(function () {
                     $("#selection").append(menu);
                 }
             });
-        } else if ($("#lunch_btn").is(":checked")) {
+        } else if ($("#lunch").is(":checked")) {
             lunch.forEach(function (element) {
                 if (element.isNoGluten) {
                     var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
@@ -338,7 +337,7 @@ $(document).ready(function () {
                     $("#selection").append(menu);
                 }
             });
-        } else if ($("#dinner_btn").is(":checked")) {
+        } else if ($("#dinner").is(":checked")) {
             dinner.forEach(function (element) {
                 if (element.isNoGluten) {
                     var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
