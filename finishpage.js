@@ -64,7 +64,7 @@ function drawBarChart() {
   // Set options for Anthony's pie chart.
   var options = {
     title:'How to Burn ' + yourcalories + ' calories',
-    titleTextStyle: {color: "#ab47bc"},
+    titleTextStyle: {color: "#4B0082"},
     // titlePosition: 'none',
     width:800,
     height:300,
@@ -83,7 +83,7 @@ function drawBarChart() {
 }
 
 window.onload = function() {
-  document.getElementById("calresult").innerHTML = "Calories: " + yourcalories + ' calories';
+  document.getElementById("calresult").innerHTML = "Calories: " + yourcalories + ' calories  ';
   document.getElementById("proresult").innerHTML = "Protein: " + yourprotein + ' g';
   document.getElementById("carbresult").innerHTML = "Carbohydrates: " + yourcarbs + ' g';
   document.getElementById("fatresult").innerHTML = "Fats: " + yourfats + ' g';
