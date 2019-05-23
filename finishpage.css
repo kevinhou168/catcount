@@ -42,3 +42,14 @@ table, tbody, tr{
   display: flex;
   margin-right: 0;
 }
+
+#results span {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#results {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+}

@@ -81,3 +81,14 @@ function drawBarChart() {
   var chart = new google.visualization.BarChart(document.getElementById('barchart'));
   chart.draw(data, options);
 }
+
+window.onload = function() {
+  document.getElementById("calresult").innerHTML = "Calories: " + yourcalories + ' calories';
+  document.getElementById("proresult").innerHTML = "Protein: " + yourprotein + ' g';
+  document.getElementById("carbresult").innerHTML = "Carbohydrates: " + yourcarbs + ' g';
+  document.getElementById("fatresult").innerHTML = "Fats: " + yourfats + ' g';
+/*  document.getElementById("results").innerHTML = "Calories: " + yourcalories + ' calories ' +
+                                                 "             Protein: " + yourprotein + ' g ' +
+                                                 "Carbohydrates: " + yourcalories + ' g ' +
+                                                 "Fats: " + yourfats + ' g';*/
+}
