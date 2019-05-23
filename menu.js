@@ -351,18 +351,16 @@ $(document).ready(function () {
     });
 
     $("#selection").click(function () {
-        // console.log($("#selection option:selected").text())
-        $("#foodName").text($("#selection option:selected").text());
-        foodName = $("#selection option:selected").text();
-        //remove space and make lower case
-        foodName_small = foodName.replace(/ +/g, "").toLowerCase();
-        var selected_food = eval(foodName_small);
-        var servingSize = document.getElementById("stufftoadd").value;
-        $(servingText).html("Serving Size: " + selected_food.serving);
-        $(foodCalories).html("Calories: " + selected_food.calories);
-        $(foodProtein).html("Protein: " + selected_food.protein);
-        $(foodCarbs).html("Carbs: " + selected_food.carbs);
-        $(foodFats).html("Fats: " + selected_food.fats);
+        var selected_menu = parseInt($("#selection option:selected").val());
+        var selected_meal = eval($("input[name=options]:checked").attr("id"));
+
+        $(servingText).html(
+            "Serving Size: " + selected_meal[selected_menu].serving
+        );
+        $(foodCalories).html("Calories: " + selected_meal[selected_menu].calories);
+        $(foodProtein).html("Protein: " + selected_meal[selected_menu].protein);
+        $(foodCarbs).html("Carbs: " + selected_meal[selected_menu].carbs);
+        $(foodFats).html("Fats: " + selected_meal[selected_menu].fats);
     });
 
     $("#add-item").click(function () {
