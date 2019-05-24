@@ -250,6 +250,15 @@ $(document).ready(function () {
     });
 
 
+    //search box
+    $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#selection option").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+
     $("#selection").click(function () {
         var selected_menu = parseInt($("#selection option:selected").val());
         var selected_meal = eval($("input[name=options]:checked").attr("id"));
