@@ -250,140 +250,42 @@ $(document).ready(function () {
     });
 
 
-
-    $("#vegan_btn").click(function () {
-
-        $("#selection .food_option").remove();
-
-        if ($("#breakfast").is(":checked")) {
-            breakfast.forEach(function (element) {
-                if (element.isVegan) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${element.name}</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#lunch").is(":checked")) {
-            lunch.forEach(function (element) {
-                if (element.isVegan) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#dinner").is(":checked")) {
-            dinner.forEach(function (element) {
-                if (element.isVegan) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        }
-    });
-
-    $("#veggie_btn").click(function () {
-        $("#selection .food_option").remove();
-
-        if ($("#breakfast").is(":checked")) {
-            breakfast.forEach(function (element) {
-                if (element.isVeggie) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#lunch").is(":checked")) {
-            lunch.forEach(function (element) {
-                if (element.isVeggie) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#dinner").is(":checked")) {
-            dinner.forEach(function (element) {
-                if (element.isVeggie) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        }
-    });
-
-    $("#gluten_btn").click(function () {
-        $("#selection .food_option").remove();
-
-        if ($("#breakfast").is(":checked")) {
-            breakfast.forEach(function (element) {
-                if (element.isNoGluten) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#lunch").is(":checked")) {
-            lunch.forEach(function (element) {
-                if (element.isNoGluten) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        } else if ($("#dinner").is(":checked")) {
-            dinner.forEach(function (element) {
-                if (element.isNoGluten) {
-                    var menu = `<option class="food_option" data-toggle="modal" data-target="#foodModal">${
-            element.name
-          }</option>`;
-                    $("#selection").append(menu);
-                }
-            });
-        }
-    });
-
     $("#selection").click(function () {
         var selected_menu = parseInt($("#selection option:selected").val());
         var selected_meal = eval($("input[name=options]:checked").attr("id"));
 
+
+        $("#foodName").html(selected_meal[selected_menu].name);
         $(servingText).html(
             "Serving Size: " + selected_meal[selected_menu].serving
         );
+
         $(foodCalories).html("Calories: " + selected_meal[selected_menu].calories);
         $(foodProtein).html("Protein: " + selected_meal[selected_menu].protein);
         $(foodCarbs).html("Carbs: " + selected_meal[selected_menu].carbs);
         $(foodFats).html("Fats: " + selected_meal[selected_menu].fats);
     });
 
-    $("#add-item").click(function () {
-        var servingSize = document.getElementById("stufftoadd").value;
-        foodName = $("#selection option:selected").text();
-        //remove space and make lower case
-        foodName_small = foodName.replace(/ +/g, "").toLowerCase();
-        var selected_food = eval(foodName_small);
 
-        // calories = calories + parseInt(selected_food.calories);
-        totalcal = totalcal + parseInt(selected_food.calories) * servingSize;
+    $("#add-item").click(function () {
+
+        var servingSize = document.getElementById("stufftoadd").value;
+
+        var selected_menu = parseInt($("#selection option:selected").val());
+        var selected_meal = eval($("input[name=options]:checked").attr("id"));
+
+        totalcal = totalcal + parseInt(selected_meal[selected_menu].calories);
         sessionStorage.setItem("calories", JSON.stringify(totalcal));
 
-        //protein = protein + parseInt(selected_food.protein);
-        totalprotein = totalprotein + parseInt(selected_food.protein) * servingSize;
+        totalprotein = totalprotein + parseInt(selected_meal[selected_menu].protein);
         sessionStorage.setItem("protein", JSON.stringify(totalprotein));
 
-        // fats = fats + parseInt(selected_food.fats);
-        totalfats = totalfats + parseInt(selected_food.fats) * servingSize;
+        totalfats = totalfats + parseInt(selected_meal[selected_menu].fats);
         sessionStorage.setItem("fats", JSON.stringify(totalfats));
 
-        // carbs = carbs + parseInt(selected_food.carbs);
-        totalcarbs = totalcarbs + parseInt(selected_food.carbs) * servingSize;
-        sessionStorage.setItem("carbs", JSON.stringify(totalcarbs));
+        totalcarbs = totalcarbs + parseInt(selected_meal[selected_menu].carbs);
+        sessionStorage.setItem("carbs", JSON.stringify(carbs));
+
 
         $("#calories").html("Calories: " + totalcal + " cal");
         $("#protein").html("Protein: " + totalprotein + " g");
