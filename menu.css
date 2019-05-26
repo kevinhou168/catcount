@@ -171,6 +171,15 @@ input[type="button"]:focus {
   outline: none;
 }
 
+#myInput{
+  border-radius: 15px;
+  background-color: #e5e8e7;
+  color: black;
+}
+#myInput:focus{
+  background-color: white;
+}
+
 #foodtype {
   margin-top: 10px;
   margin-bottom: 10px;
