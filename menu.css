@@ -14,8 +14,9 @@ body {
   border: none;
   font-size: 30px;
   padding-left: 0.5em;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   color: purple;
+  height: 5%;
 }
 
 .header a {
@@ -23,8 +24,23 @@ body {
   text-decoration: none;
 }
 
+#menu_select{
+  height: 70%;
+}
+
 #menu-selection {
   text-align: center;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  padding: 1em;
+}
+
+#selectedfood{
+  float: right;
+  display: inline-block;
+  height: 100%;
+  padding: 1em;
 }
 #top-left {
   float: left;
@@ -35,6 +51,15 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.food_option{
+    outline: none !important;
+}
+.food_option:hover {
+  background-color: #e5e8e7;
+  cursor: pointer;
+  outline: none;
 }
 
 li {
@@ -50,14 +75,16 @@ li:hover span {
   border-radius: 15%;
 }
 
-.container-fluid {
-  margin-top: 30px;
+.btn {
+  cursor: pointer;
 }
 
-.btn {
-  background-color: pink;
-  border-color: white;
-  cursor: pointer;
+.btn-group-toggle{
+  margin-bottom: 10px;
+}
+.meal{
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 span {
@@ -70,6 +97,15 @@ span {
   display: inline-block;
   transition: 0.2s linear;
   opacity: 0;
+}
+
+table{
+  width: 100%;
+}
+
+td{
+  width: 20%;
+  align-items: center;
 }
 
 #foodName {
@@ -93,44 +129,22 @@ span {
 }
 
 #summary {
-  margin-top: 20px;
-  height: 20%;
+  height: 25%;
   width: 100%;
-  float: left;
-  margin-left: 20px;
-}
-
-#summary h2 {
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-#finish {
-  background-color: thistle;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  border-radius: 50%;
-  float: right;
-  margin-right: 20px;
-  margin-top: -75px;
-  font-variant: small-caps;
-  outline: 0;
-}
-
-#foodModal {
-  float: left;
-  width: 50%;
+  padding-left: 2em;
+  padding-top: 1em;
+  padding-bottom: 2em;
 }
 
 #selectedfood {
   float: right;
   width: 50%;
   text-align: center;
+}
+
+#selection{
+  height: 70%;
+  margin-top: 1em;
 }
 
 input[type="button"] {
@@ -160,17 +174,4 @@ input[type="button"]:focus {
 #foodtype {
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-#finish:hover {
-  opacity: 0.6;
-}
-
-#finish:active {
-  transform: translateY(1px);
-  filter: saturate(150%);
-}
-
-#finish:focus {
-  outline: 0;
 }
