@@ -276,42 +276,55 @@ $(document).ready(function () {
     });
 
 
-    $("#add-item").click(function () {
+    function additem(){
+      var servingSize = document.getElementById("stufftoadd").value;
 
-        var servingSize = document.getElementById("stufftoadd").value;
+      var selected_menu = parseInt($("#selection option:selected").val());
+      var selected_meal = eval($("input[name=options]:checked").attr("id"));
 
-        var selected_menu = parseInt($("#selection option:selected").val());
-        var selected_meal = eval($("input[name=options]:checked").attr("id"));
+      totalcal = totalcal + parseInt(selected_meal[selected_menu].calories) * servingSize;
+      sessionStorage.setItem("calories", JSON.stringify(totalcal));
 
-        totalcal = totalcal + parseInt(selected_meal[selected_menu].calories) * servingSize;
-        sessionStorage.setItem("calories", JSON.stringify(totalcal));
+      totalprotein = totalprotein + parseInt(selected_meal[selected_menu].protein) * servingSize;
+      sessionStorage.setItem("protein", JSON.stringify(totalprotein));
 
-        totalprotein = totalprotein + parseInt(selected_meal[selected_menu].protein) * servingSize;
-        sessionStorage.setItem("protein", JSON.stringify(totalprotein));
+      totalfats = totalfats + parseInt(selected_meal[selected_menu].fats) * servingSize;
+      sessionStorage.setItem("fats", JSON.stringify(totalfats));
 
-        totalfats = totalfats + parseInt(selected_meal[selected_menu].fats) * servingSize;
-        sessionStorage.setItem("fats", JSON.stringify(totalfats));
-
-        totalcarbs = totalcarbs + parseInt(selected_meal[selected_menu].carbs) * servingSize;
-        sessionStorage.setItem("carbs", JSON.stringify(totalcarbs));
+      totalcarbs = totalcarbs + parseInt(selected_meal[selected_menu].carbs) * servingSize;
+      sessionStorage.setItem("carbs", JSON.stringify(totalcarbs));
 
 
-        $("#calories").html("Calories: " + totalcal + " cal");
-        $("#protein").html("Protein: " + totalprotein + " g");
-        $("#fats").html("Fats: " + totalfats + " g");
-        $("#carbs").html("Carbohydrate: " + totalcarbs + " g");
+      $("#calories").html("Calories: " + totalcal + " cal");
+      $("#protein").html("Protein: " + totalprotein + " g");
+      $("#fats").html("Fats: " + totalfats + " g");
+      $("#carbs").html("Carbohydrate: " + totalcarbs + " g");
 
-        var food =
-            "<li class = 'shadow-sm rounded'><span class = 'rounded'><i id = 'trash' class='fa fa-trash'></i></span>" +
-            $("#selection option:selected").text() +
-            " (" +
-            servingSize +
-            ")</li>";
+      var food =
+          "<li class = 'shadow-sm rounded'><span class = 'rounded'><i id = 'trash' class='fa fa-trash'></i></span>" +
+          $("#selection option:selected").text() +
+          " (" +
+          servingSize +
+          ")</li>";
 
-        $("#food-list").append(food);
-        // defaults back to 1
-        document.getElementById("stufftoadd").value = 1;
+      $("#food-list").append(food);
+      // defaults back to 1
+      document.getElementById("stufftoadd").value = 1;
+    };
+
+    $("#add-item").click(additem);
+
+    // lets you add food when you hit "enter"
+    var addbyenter = document.getElementById("stufftoadd");
+
+    addbyenter.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+       event.preventDefault();
+       additem();
+       $("#close-item").click();
+      }
     });
+
 
     $("#close-item").click(function () {
         document.getElementById("stufftoadd").value = 1;
