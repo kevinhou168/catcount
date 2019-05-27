@@ -42,6 +42,7 @@ function drawPieChart() {
   var options = {
     'width':500,
     'height':400,
+    'fontSize': 15,
     colors: ['#ce93d8', '#b39ddb', '#9575cd', '#ab47bc', '#7e57c2'],
     chartArea:{left:195,top:20, width:'100%', height:'100%'},
     legend: {postion: 'top', alignment:'center'}
@@ -64,7 +65,7 @@ function drawBarChart() {
   // Set options for Anthony's pie chart.
   var options = {
     title:'How to Burn ' + yourcalories + ' calories',
-    titleTextStyle: {color: "#4B0082"},
+    titleTextStyle: {color: "#4B0082", fontSize: "20"},
     // titlePosition: 'none',
     width:800,
     height:300,
