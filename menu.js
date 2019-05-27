@@ -302,7 +302,7 @@ $(document).ready(function () {
         $("#carbs").html("Carbohydrate: " + totalcarbs + " g");
 
         var food =
-            "<li><span><i class='fa fa-trash '></i></span>" +
+            "<li class = 'shadow-sm rounded'><span class = 'rounded'><i id = 'trash' class='fa fa-trash'></i></span>" +
             $("#selection option:selected").text() +
             " (" +
             servingSize +
