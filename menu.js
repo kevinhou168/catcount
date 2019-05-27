@@ -283,17 +283,17 @@ $(document).ready(function () {
         var selected_menu = parseInt($("#selection option:selected").val());
         var selected_meal = eval($("input[name=options]:checked").attr("id"));
 
-        totalcal = totalcal + parseInt(selected_meal[selected_menu].calories);
+        totalcal = totalcal + parseInt(selected_meal[selected_menu].calories) * servingSize;
         sessionStorage.setItem("calories", JSON.stringify(totalcal));
 
-        totalprotein = totalprotein + parseInt(selected_meal[selected_menu].protein);
+        totalprotein = totalprotein + parseInt(selected_meal[selected_menu].protein) * servingSize;
         sessionStorage.setItem("protein", JSON.stringify(totalprotein));
 
-        totalfats = totalfats + parseInt(selected_meal[selected_menu].fats);
+        totalfats = totalfats + parseInt(selected_meal[selected_menu].fats) * servingSize;
         sessionStorage.setItem("fats", JSON.stringify(totalfats));
 
-        totalcarbs = totalcarbs + parseInt(selected_meal[selected_menu].carbs);
-        sessionStorage.setItem("carbs", JSON.stringify(carbs));
+        totalcarbs = totalcarbs + parseInt(selected_meal[selected_menu].carbs) * servingSize;
+        sessionStorage.setItem("carbs", JSON.stringify(totalcarbs));
 
 
         $("#calories").html("Calories: " + totalcal + " cal");
@@ -344,7 +344,7 @@ $(document).ready(function () {
 
                 $("#calories").html("Calories: " + totalcal + " cal");
                 $("#protein").html("Protein: " + totalprotein + " g");
-                $("#fats").html("Fats: " + fats * totalfats + " g");
+                $("#fats").html("Fats: " + totalfats + " g");
                 $("#carbs").html("Carbohydrate: " + totalcarbs + " g");
 
                 $(this).remove();
