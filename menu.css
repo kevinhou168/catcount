@@ -175,6 +175,27 @@ input[type="button"]:focus {
   outline: none;
 }
 
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 9px 8px;
+  color: dodgerBlue;
+  transition: 0.3s;
+}
+
+.inputWithIcon input[type="text"]:focus + i {
+  color: dodgerBlue;
+}
+
 #myInput{
   border-radius: 15px;
   background-color: #e5e8e7;
