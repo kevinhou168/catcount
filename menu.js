@@ -288,8 +288,7 @@ $(document).ready(function () {
       {
         studentMenu.push(selected_meal[selected_menu].name.replace(/ +/g, "").toLowerCase());
       }
-
-      sessionnStorage.setItem("menu", studentMenu);
+      sessionStorage.setItem("menu", studentMenu);
 
       totalcal = totalcal + parseInt(selected_meal[selected_menu].calories) * servingSize;
       sessionStorage.setItem("calories", JSON.stringify(totalcal));
@@ -361,12 +360,20 @@ $(document).ready(function () {
                     console.log(studentMenu);
                   }
                 }
+                sessionStorage.setItem("menu", studentMenu);
                 var selected_food = eval(remove_number);
 
                 totalcal = totalcal - parseInt(selected_food.calories) * servingSize;
+                sessionStorage.setItem("calories", JSON.stringify(totalcal));
+
                 totalprotein = totalprotein - parseInt(selected_food.protein) * servingSize;
+                sessionStorage.setItem("protein", JSON.stringify(totalprotein));
+
                 totalfats = totalfats - parseInt(selected_food.fats) * servingSize;
+                sessionStorage.setItem("fats", JSON.stringify(totalfats));
+
                 totalcarbs = totalcarbs - parseInt(selected_food.carbs) * servingSize;
+                sessionStorage.setItem("carbs", JSON.stringify(totalcarbs));
 
                 //get serving size
 
