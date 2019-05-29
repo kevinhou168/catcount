@@ -195,6 +195,8 @@ var lunch = [grilledchicken, porkloin, rice, corn, zucchini];
 
 var dinner = [salmon, alfredo, broccoli, pizza, greenbeans];
 
+var studentMenu = [];
+
 $(document).ready(function () {
 
 
@@ -282,6 +284,13 @@ $(document).ready(function () {
       var selected_menu = parseInt($("#selection option:selected").val());
       var selected_meal = eval($("input[name=options]:checked").attr("id"));
 
+      for (var i = 0; i < servingSize; i++)
+      {
+        studentMenu.push(selected_meal[selected_menu].name.replace(/ +/g, "").toLowerCase());
+      }
+
+      sessionnStorage.setItem("menu", studentMenu);
+
       totalcal = totalcal + parseInt(selected_meal[selected_menu].calories) * servingSize;
       sessionStorage.setItem("calories", JSON.stringify(totalcal));
 
@@ -344,12 +353,18 @@ $(document).ready(function () {
                     serving_size_rough.length - 1
                 );
                 console.log(remove_number);
-                console.log(servingSize);
+                for (var i = 0; i < studentMenu.length; i++)
+                {
+                  if (studentMenu[i] === remove_number)
+                  {
+                    studentMenu.splice(i, 1);
+                    console.log(studentMenu);
+                  }
+                }
                 var selected_food = eval(remove_number);
 
                 totalcal = totalcal - parseInt(selected_food.calories) * servingSize;
-                totalprotein =
-                    totalprotein - parseInt(selected_food.protein) * servingSize;
+                totalprotein = totalprotein - parseInt(selected_food.protein) * servingSize;
                 totalfats = totalfats - parseInt(selected_food.fats) * servingSize;
                 totalcarbs = totalcarbs - parseInt(selected_food.carbs) * servingSize;
 
