@@ -288,7 +288,7 @@ $(document).ready(function () {
       {
         studentMenu.push(selected_meal[selected_menu].name.replace(/ +/g, "").toLowerCase());
       }
-      sessionStorage.setItem("menu", studentMenu);
+      sessionStorage.setItem("menu", JSON.stringify(studentMenu));
 
       totalcal = totalcal + parseInt(selected_meal[selected_menu].calories) * servingSize;
       sessionStorage.setItem("calories", JSON.stringify(totalcal));
@@ -351,16 +351,14 @@ $(document).ready(function () {
                     0,
                     serving_size_rough.length - 1
                 );
-                console.log(remove_number);
                 for (var i = 0; i < studentMenu.length; i++)
                 {
                   if (studentMenu[i] === remove_number)
                   {
                     studentMenu.splice(i, 1);
-                    console.log(studentMenu);
                   }
                 }
-                sessionStorage.setItem("menu", studentMenu);
+                sessionStorage.setItem("menu", JSON.stringify(studentMenu));
                 var selected_food = eval(remove_number);
 
                 totalcal = totalcal - parseInt(selected_food.calories) * servingSize;
