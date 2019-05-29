@@ -194,6 +194,7 @@ yourprotein = parseInt(sessionStorage.getItem("protein"));
 yourfats = parseInt(sessionStorage.getItem("fats"));
 yourcarbs = parseInt(sessionStorage.getItem("carbs"));
 yourcalories = parseInt(sessionStorage.getItem("calories"));
+
 // how many calories each exercise burns per minute
 walkcalories = 230/60;
 swimcalories = 500/60;
@@ -214,6 +215,9 @@ $("#test").text(yourcalories);
 // console.log(testDiv);
 // test.appendChild(testDiv);
 
+function displayModal() {
+  document.getElementById("menuModal").style.display = "block";
+}
 
 // Draw the chart and set the chart values
 function drawPieChart() {
@@ -225,26 +229,26 @@ function drawPieChart() {
 
 
   data.addColumn({type: 'string', role: 'tooltip'})
-  var proteinFoods = 'Protein: ' + yourprotein + 'g' + '\n';
+  var proteinFoods = '<b>Protein: ' + yourprotein + 'g</b>' + '<br>' + '<br>';
   for (var i = 0; i < yourmenu.length; i++)
   {
-    proteinFoods += '\n' + eval(yourmenu[i]).name + ':' + ' ' + eval(yourmenu[i]).protein;
+    proteinFoods += eval(yourmenu[i]).protein + " from " + eval(yourmenu[i]).name + '<br>';
   }
-  data.addRow(['Protein', yourprotein, proteinFoods]);
+  data.addRow(['Protein', yourprotein, '']);
 
-  var carbFoods = 'Carbs: ' + yourcarbs + 'g'  + '\n';
+  var carbFoods = '<b>Carbs: ' + yourcarbs + 'g</b>'  + '<br>' + '<br>';
   for (var i = 0; i < yourmenu.length; i++)
   {
-    carbFoods += '\n' + eval(yourmenu[i]).name + ':' + ' ' + eval(yourmenu[i]).carbs;
+    carbFoods += eval(yourmenu[i]).carbs + " from " + eval(yourmenu[i]).name + '<br>';
   }
-  data.addRow(['Carbs', yourcarbs, carbFoods]);
+  data.addRow(['Carbs', yourcarbs, '']);
 
-  var fatFoods = 'Fats: ' + yourfats + 'g'  + '\n';
+  var fatFoods = '<b>Fats: ' + yourfats + 'g</b>'  + '<br>' + '<br>';
   for (var i = 0; i < yourmenu.length; i++)
   {
-    fatFoods += '\n' + eval(yourmenu[i]).name + ':' + ' ' + eval(yourmenu[i]).fats;
+    fatFoods += eval(yourmenu[i]).fats + " from " + eval(yourmenu[i]).name + '<br>';
   }
-  data.addRow(['Fats', yourfats, fatFoods]);
+  data.addRow(['Fats', yourfats, '']);
 
 
   // Optional; add a title and set the width and height of the chart
@@ -258,9 +262,40 @@ function drawPieChart() {
     focusTarget: 'category'
   };
 
+
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+  function selectHandler() {
+    var selectedItem = chart.getSelection()[0];
+    if (selectedItem)
+    {
+      var value = data.getValue(selectedItem.row, 0);
+      if (value === "Protein")
+      {
+        document.getElementById("content").innerHTML = proteinFoods;
+      }
+      else if (value === "Carbs")
+      {
+        document.getElementById("content").innerHTML = carbFoods;
+      }
+      else if (value === "Fats")
+      {
+        document.getElementById("content").innerHTML = fatFoods;
+      }
+      displayModal();
+    }
+  }
+
+  google.visualization.events.addListener(chart, 'select', selectHandler);
   chart.draw(data, options);
+}
+
+// Close the modal when anywhere outside of modal is clicked
+window.onclick = function(event) {
+  if (event.target == document.getElementById("menuModal")) {
+    document.getElementById("menuModal").style.display = "none";
+  }
 }
 
 function drawBarChart() {
