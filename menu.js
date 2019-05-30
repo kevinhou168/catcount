@@ -197,6 +197,9 @@ var dinner = [salmon, alfredo, broccoli, pizza, greenbeans];
 
 var studentMenu = [];
 
+var list = [];
+
+
 $(document).ready(function () {
 
 
@@ -278,46 +281,57 @@ $(document).ready(function () {
     });
 
 
-    function additem(){
-      var servingSize = document.getElementById("stufftoadd").value;
+    function additem() {
+        var servingSize = document.getElementById("stufftoadd").value;
 
-      var selected_menu = parseInt($("#selection option:selected").val());
-      var selected_meal = eval($("input[name=options]:checked").attr("id"));
+        var selected_menu = parseInt($("#selection option:selected").val());
+        var selected_meal = eval($("input[name=options]:checked").attr("id"));
 
-      for (var i = 0; i < servingSize; i++)
-      {
-        studentMenu.push(selected_meal[selected_menu].name.replace(/ +/g, "").toLowerCase());
-      }
-      sessionStorage.setItem("menu", JSON.stringify(studentMenu));
+        for (var i = 0; i < servingSize; i++) {
+            studentMenu.push(selected_meal[selected_menu]);
+        }
+        sessionStorage.setItem("menu", JSON.stringify(studentMenu));
 
-      totalcal = totalcal + parseInt(selected_meal[selected_menu].calories) * servingSize;
-      sessionStorage.setItem("calories", JSON.stringify(totalcal));
+        totalcal = totalcal + parseInt(selected_meal[selected_menu].calories) * servingSize;
+        sessionStorage.setItem("calories", JSON.stringify(totalcal));
 
-      totalprotein = totalprotein + parseInt(selected_meal[selected_menu].protein) * servingSize;
-      sessionStorage.setItem("protein", JSON.stringify(totalprotein));
+        totalprotein = totalprotein + parseInt(selected_meal[selected_menu].protein) * servingSize;
+        sessionStorage.setItem("protein", JSON.stringify(totalprotein));
 
-      totalfats = totalfats + parseInt(selected_meal[selected_menu].fats) * servingSize;
-      sessionStorage.setItem("fats", JSON.stringify(totalfats));
+        totalfats = totalfats + parseInt(selected_meal[selected_menu].fats) * servingSize;
+        sessionStorage.setItem("fats", JSON.stringify(totalfats));
 
-      totalcarbs = totalcarbs + parseInt(selected_meal[selected_menu].carbs) * servingSize;
-      sessionStorage.setItem("carbs", JSON.stringify(totalcarbs));
+        totalcarbs = totalcarbs + parseInt(selected_meal[selected_menu].carbs) * servingSize;
+        sessionStorage.setItem("carbs", JSON.stringify(totalcarbs));
 
 
-      $("#calories").html("Calories: " + totalcal + " cal");
-      $("#protein").html("Protein: " + totalprotein + " g");
-      $("#fats").html("Fats: " + totalfats + " g");
-      $("#carbs").html("Carbohydrate: " + totalcarbs + " g");
+        $("#calories").html("Calories: " + totalcal + " cal");
+        $("#protein").html("Protein: " + totalprotein + " g");
+        $("#fats").html("Fats: " + totalfats + " g");
+        $("#carbs").html("Carbohydrate: " + totalcarbs + " g");
 
-      var food =
-          "<li class = 'shadow-sm rounded'><span class = 'rounded'><i id = 'trash' class='fa fa-trash'></i></span>" +
-          $("#selection option:selected").text() +
-          " (" +
-          servingSize +
-          ")</li>";
+        var food =
+            "<li class = 'shadow-sm rounded'><span class = 'rounded'><i id = 'trash' class='fa fa-trash'></i></span>" +
+            $("#selection option:selected").text() +
+            " (" +
+            servingSize +
+            ")</li>";
 
-      $("#food-list").append(food);
-      // defaults back to 1
-      document.getElementById("stufftoadd").value = 1;
+        $("#food-list").append(food);
+        // defaults back to 1
+        document.getElementById("stufftoadd").value = 1;
+
+
+
+        /*
+                var listItems = $("#food-list li");
+                for (let li of listItems) {
+                    let item = $(li).text();
+                    list.push(item);
+                }
+
+        */
+
     };
 
     $("#add-item").click(additem);
@@ -325,12 +339,12 @@ $(document).ready(function () {
     // lets you add food when you hit "enter"
     var addbyenter = document.getElementById("stufftoadd");
 
-    addbyenter.addEventListener("keyup", function(event) {
-      if (event.keyCode === 13) {
-       event.preventDefault();
-       additem();
-       $("#close-item").click();
-      }
+    addbyenter.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            additem();
+            $("#close-item").click();
+        }
     });
 
 
@@ -351,12 +365,10 @@ $(document).ready(function () {
                     0,
                     serving_size_rough.length - 1
                 );
-                for (var i = 0; i < studentMenu.length; i++)
-                {
-                  if (studentMenu[i] === remove_number)
-                  {
-                    studentMenu.splice(i, 1);
-                  }
+                for (var i = 0; i < studentMenu.length; i++) {
+                    if (studentMenu[i] === remove_number) {
+                        studentMenu.splice(i, 1);
+                    }
                 }
                 sessionStorage.setItem("menu", JSON.stringify(studentMenu));
                 var selected_food = eval(remove_number);
@@ -384,4 +396,17 @@ $(document).ready(function () {
             });
         event.stopPropagation();
     });
+
+
+    $("#complete-btn").click(function () {
+
+
+
+
+
+    })
+
+
+
+
 });

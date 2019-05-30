@@ -184,7 +184,9 @@ var greenbeans = {
 };
 
 // Load google charts
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {
+    'packages': ['corechart']
+});
 google.charts.setOnLoadCallback(drawPieChart);
 google.charts.setOnLoadCallback(drawBarChart);
 
@@ -195,16 +197,49 @@ yourfats = parseInt(sessionStorage.getItem("fats"));
 yourcarbs = parseInt(sessionStorage.getItem("carbs"));
 yourcalories = parseInt(sessionStorage.getItem("calories"));
 
+
+//filter yourmenu here
+var arrofdicts = [];
+
+//
+//loop through all dicts in array
+//if dict.name contains that, all to the count
+
+
+yourmenu.forEach(function (element) {
+
+    var found = false
+    arrofdicts.forEach(function (dict) {
+        if (element.name == dict['item'].name) {
+            dict.count = dict.count + 1;
+            found = true;
+        }
+    });
+
+
+    if (!found) {
+        arrofdicts.push({
+            item: element,
+            count: 1,
+        })
+    }
+
+
+});
+
+
+
+
 // how many calories each exercise burns per minute
-walkcalories = 230/60;
-swimcalories = 500/60;
-jogcalories = 400/60;
-cyclecalories = 450/60;
+walkcalories = 230 / 60;
+swimcalories = 500 / 60;
+jogcalories = 400 / 60;
+cyclecalories = 450 / 60;
 // how many minutes of each exercise must be done
-walktime = yourcalories/walkcalories;
-swimtime = yourcalories/swimcalories;
-jogtime = yourcalories/jogcalories;
-cycletime = yourcalories/cyclecalories;
+walktime = yourcalories / walkcalories;
+swimtime = yourcalories / swimcalories;
+jogtime = yourcalories / jogcalories;
+cycletime = yourcalories / cyclecalories;
 
 // var test = document.getElementById("test");
 // var testDiv = document.createElement('div');
@@ -216,125 +251,165 @@ $("#test").text(yourcalories);
 // test.appendChild(testDiv);
 
 function displayModal() {
-  document.getElementById("menuModal").style.display = "block";
+    document.getElementById("menuModal").style.display = "block";
 }
 
 // Draw the chart and set the chart values
 function drawPieChart() {
-  // yourcalories = parseInt(sessionStorage.getItem("calories"));
-  var data = google.visualization.arrayToDataTable([
+    // yourcalories = parseInt(sessionStorage.getItem("calories"));
+    var data = google.visualization.arrayToDataTable([
     ['Nutritient', 'Amount'],
     ['', 0]
   ]);
 
 
-  data.addColumn({type: 'string', role: 'tooltip'})
-  var proteinFoods = '<b>Protein: ' + yourprotein + 'g</b>' + '<br>' + '<br>';
-  for (var i = 0; i < yourmenu.length; i++)
-  {
-    proteinFoods += eval(yourmenu[i]).protein + " from " + eval(yourmenu[i]).name + '<br>';
-  }
-  data.addRow(['Protein', yourprotein, '']);
+    data.addColumn({
+        type: 'string',
+        role: 'tooltip'
+    })
+    var proteinFoods = '<b>Protein: ' + yourprotein + 'g</b>' + '<br>' + '<br>';
+    var proteinsum;
+    var proteinpercent;
 
-  var carbFoods = '<b>Carbs: ' + yourcarbs + 'g</b>'  + '<br>' + '<br>';
-  for (var i = 0; i < yourmenu.length; i++)
-  {
-    carbFoods += eval(yourmenu[i]).carbs + " from " + eval(yourmenu[i]).name + '<br>';
-  }
-  data.addRow(['Carbs', yourcarbs, '']);
+    for (var i = 0; i < arrofdicts.length; i++) {
+        proteinsum = parseInt(arrofdicts[i].item.protein) * arrofdicts[i].count
+        proteinpercent = ((proteinsum / yourprotein) * 100).toFixed(2);
 
-  var fatFoods = '<b>Fats: ' + yourfats + 'g</b>'  + '<br>' + '<br>';
-  for (var i = 0; i < yourmenu.length; i++)
-  {
-    fatFoods += eval(yourmenu[i]).fats + " from " + eval(yourmenu[i]).name + '<br>';
-  }
-  data.addRow(['Fats', yourfats, '']);
-
-
-  // Optional; add a title and set the width and height of the chart
-  var options = {
-    'width':500,
-    'height':400,
-    'fontSize': 15,
-    colors: ['#ce93d8', '#b39ddb', '#9575cd', '#ab47bc', '#7e57c2'],
-    chartArea:{left:195,top:20, width:'100%', height:'100%'},
-    legend: {postion: 'top', alignment:'center'},
-    focusTarget: 'category'
-  };
-
-
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-  function selectHandler() {
-    var selectedItem = chart.getSelection()[0];
-    if (selectedItem)
-    {
-      var value = data.getValue(selectedItem.row, 0);
-      if (value === "Protein")
-      {
-        document.getElementById("content").innerHTML = proteinFoods;
-      }
-      else if (value === "Carbs")
-      {
-        document.getElementById("content").innerHTML = carbFoods;
-      }
-      else if (value === "Fats")
-      {
-        document.getElementById("content").innerHTML = fatFoods;
-      }
-      displayModal();
+        proteinFoods += proteinsum + "g from " + arrofdicts[i].item.name + " (" + proteinpercent + "%)" + '<br>';
     }
-  }
 
-  google.visualization.events.addListener(chart, 'select', selectHandler);
-  chart.draw(data, options);
+
+    data.addRow(['Protein', yourprotein, '']);
+
+
+    var carbFoods = '<b>Carbs: ' + yourcarbs + 'g</b>' + '<br>' + '<br>';
+    var carbsum;
+    var carbpercent;
+
+    for (var i = 0; i < arrofdicts.length; i++) {
+        carbsum = parseInt(arrofdicts[i].item.carbs) * arrofdicts[i].count
+        carbpercent = ((carbsum / yourcarbs) * 100).toFixed(2);
+
+
+        carbFoods += carbsum + "g from " + arrofdicts[i].item.name + " (" + carbpercent + "%)" + '<br>';
+    }
+
+
+    data.addRow(['Carbs', yourcarbs, '']);
+
+    var fatFoods = '<b>Fats: ' + yourfats + 'g</b>' + '<br>' + '<br>';
+
+
+    var fatsum;
+    var fatpercent;
+
+    for (var i = 0; i < arrofdicts.length; i++) {
+        fatsum = parseInt(arrofdicts[i].item.fats) * arrofdicts[i].count
+        fatpercent = ((fatsum / yourfats) * 100).toFixed(2);
+
+
+        fatFoods += fatsum + "g from " + arrofdicts[i].item.name + " (" + fatpercent + "%)" + '<br>';
+    }
+
+    data.addRow(['Fats', yourfats, '']);
+
+
+    // Optional; add a title and set the width and height of the chart
+    var options = {
+        'width': 500,
+        'height': 400,
+        'fontSize': 15,
+        colors: ['#ce93d8', '#b39ddb', '#9575cd', '#ab47bc', '#7e57c2'],
+        chartArea: {
+            left: 195,
+            top: 20,
+            width: '100%',
+            height: '100%'
+        },
+        legend: {
+            postion: 'top',
+            alignment: 'center'
+        },
+        focusTarget: 'category'
+    };
+
+
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    function selectHandler() {
+        var selectedItem = chart.getSelection()[0];
+        if (selectedItem) {
+            var value = data.getValue(selectedItem.row, 0);
+            if (value === "Protein") {
+                document.getElementById("content").innerHTML = proteinFoods;
+            } else if (value === "Carbs") {
+                document.getElementById("content").innerHTML = carbFoods;
+            } else if (value === "Fats") {
+                document.getElementById("content").innerHTML = fatFoods;
+            }
+            displayModal();
+        }
+    }
+
+    google.visualization.events.addListener(chart, 'select', selectHandler);
+    chart.draw(data, options);
 }
 
 // Close the modal when anywhere outside of modal is clicked
-window.onclick = function(event) {
-  if (event.target == document.getElementById("menuModal")) {
-    document.getElementById("menuModal").style.display = "none";
-  }
+window.onclick = function (event) {
+    if (event.target == document.getElementById("menuModal")) {
+        document.getElementById("menuModal").style.display = "none";
+    }
 }
 
 function drawBarChart() {
-  // Create the data table for Anthony's pizza.
-  var data = google.visualization.arrayToDataTable([
-  ['Exercise', 'Minutes', { role: 'style' }],
+    // Create the data table for Anthony's pizza.
+    var data = google.visualization.arrayToDataTable([
+  ['Exercise', 'Minutes', {
+            role: 'style'
+        }],
   ['Walking', walktime, 'color: #ce93d8'],
   ['Swimming', swimtime, 'color: #b39ddb'],
   ['Jogging', jogtime, 'color: #9575cd'],
   ['Cycling', cycletime, 'color: #ab47bc']
   ]);
-  // Set options for Anthony's pie chart.
-  var options = {
-    title:'How to Burn ' + yourcalories + ' calories',
-    titleTextStyle: {color: "#4B0082", fontSize: "20"},
-    // titlePosition: 'none',
-    width:800,
-    height:300,
-    legend: 'none',
-    hAxis: {title: 'Minutes', titleTextStyle: { italic: false}},
-    animation: {
-          duration: 1000,
-          easing: 'In',
-          startup: true
-      }
-  };
+    // Set options for Anthony's pie chart.
+    var options = {
+        title: 'How to Burn ' + yourcalories + ' calories',
+        titleTextStyle: {
+            color: "#4B0082",
+            fontSize: "20"
+        },
+        // titlePosition: 'none',
+        width: 800,
+        height: 300,
+        legend: 'none',
+        hAxis: {
+            title: 'Minutes',
+            titleTextStyle: {
+                italic: false
+            }
+        },
+        animation: {
+            duration: 1000,
+            easing: 'In',
+            startup: true
+        }
+    };
 
-  // Instantiate and draw the chart for Anthony's pizza.
-  var chart = new google.visualization.BarChart(document.getElementById('barchart'));
-  chart.draw(data, options);
+    // Instantiate and draw the chart for Anthony's pizza.
+    var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+    chart.draw(data, options);
 }
 
-window.onload = function() {
-  document.getElementById("calresult").innerHTML = "Calories: " + yourcalories + ' calories  ';
-  document.getElementById("proresult").innerHTML = "Protein: " + yourprotein + ' g';
-  document.getElementById("carbresult").innerHTML = "Carbohydrates: " + yourcarbs + ' g';
-  document.getElementById("fatresult").innerHTML = "Fats: " + yourfats + ' g';
-/*  document.getElementById("results").innerHTML = "Calories: " + yourcalories + ' calories ' +
-                                                 "             Protein: " + yourprotein + ' g ' +
-                                                 "Carbohydrates: " + yourcalories + ' g ' +
-                                                 "Fats: " + yourfats + ' g';*/
+window.onload = function () {
+    document.getElementById("calresult").innerHTML = "Calories: " + yourcalories + ' calories  ';
+    document.getElementById("proresult").innerHTML = "Protein: " + yourprotein + ' g';
+    document.getElementById("carbresult").innerHTML = "Carbohydrates: " + yourcarbs + ' g';
+    document.getElementById("fatresult").innerHTML = "Fats: " + yourfats + ' g';
+    /*  document.getElementById("results").innerHTML = "Calories: " + yourcalories + ' calories ' +
+                                                     "             Protein: " + yourprotein + ' g ' +
+                                                     "Carbohydrates: " + yourcalories + ' g ' +
+                                                     "Fats: " + yourfats + ' g';*/
 }
