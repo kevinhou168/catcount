@@ -94,3 +94,7 @@
  #piechart g {
      cursor: pointer;
  }
+
+ #hint {
+     text-align: center;
+ }
