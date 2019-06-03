@@ -319,7 +319,7 @@ function drawPieChart() {
         'width': 500,
         'height': 400,
         'fontSize': 15,
-        colors: ['#ce93d8', '#b39ddb', '#9575cd', '#ab47bc', '#7e57c2'],
+        colors: ['#0FBC8A', '#F84F19', '#FFC300'],
         chartArea: {
             left: 195,
             top: 20,
