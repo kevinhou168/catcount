@@ -316,13 +316,14 @@ function drawPieChart() {
 
     // Optional; add a title and set the width and height of the chart
     var options = {
+
         'width': 500,
-        'height': 400,
+        'height': 300,
         'fontSize': 15,
-        colors: ['#0FBC8A', '#F84F19', '#FFC300'],
+        colors: ['#a5c7eb', '#e08994', '#b55fa7'],
         chartArea: {
             left: 195,
-            top: 20,
+            top: 50,
             width: '100%',
             height: '100%'
         },
@@ -351,9 +352,19 @@ function drawPieChart() {
             displayModal();
         }
     }
+    function uselessHandler2() {
+      $('#piechart').css('cursor','pointer')
+    }
+    function uselessHandler3() {
+      $('#piechart').css('cursor','default')
+    }
+
+    chart.draw(data, options);
 
     google.visualization.events.addListener(chart, 'select', selectHandler);
-    chart.draw(data, options);
+    google.visualization.events.addListener(chart, 'onmouseover', uselessHandler2);
+    google.visualization.events.addListener(chart, 'onmouseout', uselessHandler3);
+
 }
 
 // Close the modal when anywhere outside of modal is clicked
@@ -369,21 +380,21 @@ function drawBarChart() {
   ['Exercise', 'Minutes', {
             role: 'style'
         }],
-  ['Walking', walktime, 'color: #ce93d8'],
-  ['Swimming', swimtime, 'color: #b39ddb'],
-  ['Jogging', jogtime, 'color: #9575cd'],
-  ['Cycling', cycletime, 'color: #ab47bc']
+  ['Walking', walktime, 'color: #a5c7eb'],
+  ['Swimming', swimtime, 'color: #e08994'],
+  ['Jogging', jogtime, 'color: #b55fa7'],
+  ['Cycling', cycletime, 'color: #4d5bbd']
   ]);
     // Set options for Anthony's pie chart.
     var options = {
         title: 'How to Burn ' + yourcalories + ' calories',
         titleTextStyle: {
-            color: "#4B0082",
+            color: "#5168ED",
             fontSize: "20"
         },
         // titlePosition: 'none',
-        width: 800,
-        height: 300,
+        width: 750,
+        height: 400,
         legend: 'none',
         hAxis: {
             title: 'Minutes',
@@ -408,8 +419,8 @@ window.onload = function () {
     document.getElementById("proresult").innerHTML = "Protein: " + yourprotein + ' g';
     document.getElementById("carbresult").innerHTML = "Carbohydrates: " + yourcarbs + ' g';
     document.getElementById("fatresult").innerHTML = "Fats: " + yourfats + ' g';
-    /*  document.getElementById("results").innerHTML = "Calories: " + yourcalories + ' calories ' +
-                                                     "             Protein: " + yourprotein + ' g ' +
-                                                     "Carbohydrates: " + yourcalories + ' g ' +
-                                                     "Fats: " + yourfats + ' g';*/
 }
+
+function uselessHandler2() {
+ $('#chart_div').css('cursor','pointer')
+  }

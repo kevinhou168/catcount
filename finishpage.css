@@ -95,6 +95,12 @@
      cursor: pointer;
  }
 
- #hint {
-     text-align: center;
+ .columns{
+   margin-top: 1em;
  }
+
+#hint{
+  text-align: center;
+  display: inline-block;
+  margin-left: 185px;
+}
