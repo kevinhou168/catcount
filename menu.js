@@ -266,6 +266,59 @@ var greenbeans = {
     serving: "110 grams"
 };
 
+var friedrice = {
+    name: "Fried Rice",
+    calories: 220,
+    protein: 5,
+    carbs: 28,
+    fats: 7,
+    serving: "160 grams"
+}
+
+var cod = {
+    name: "Cod",
+    calories: 270,
+    protein: 21,
+    carbs: 13,
+    fats: 12,
+    serving: "1 Filet"
+}
+
+var spinach = {
+    name: "Spinach",
+    calories: 23,
+    protein: 0,
+    carbs: 5,
+    fats: 0,
+    serving: "100 grams"
+}
+
+var padthai = {
+    name: "Pad Thai",
+    calories: 420,
+    protein: 11,
+    carbs: 37,
+    fats: 11,
+    serving: "230 grams"
+}
+
+var bcsoup = {
+    name: "Broccoli Cheddar Soup",
+    calories: 280,
+    protein: 7,
+    carbs: 14,
+    fats: 15,
+    serving: "180 grams"
+}
+
+var chickentender = {
+    name: "Chicken Tenders",
+    calories: 250,
+    protein: 18,
+    carbs: 11,
+    fats: 11,
+    serving: "2 Tenders"
+}
 
 var totalcal = 0;
 var totalprotein = 0;
@@ -277,7 +330,7 @@ var breakfast = [scrambledeggs, bacon, porksausage, sweetpotatoes, oats, eggtaco
 
 var lunch = [grilledchicken, porkloin, rice, corn, zucchini, carbonara, breadstick, ropavieja, hamburgerpatty, frenchfries];
 
-var dinner = [salmon, alfredo, broccoli, pizza, greenbeans];
+var dinner = [salmon, alfredo, broccoli, pizza, greenbeans, friedrice, cod, spinach, padthai, bcsoup, chickentender];
 
 var studentMenu = [];
 
