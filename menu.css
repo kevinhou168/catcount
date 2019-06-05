@@ -216,3 +216,15 @@ input[type=number] {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+#foodName {
+    font-weight: bold;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.sum {
+    font-size: 20px;
+}

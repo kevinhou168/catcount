@@ -352,11 +352,13 @@ function drawPieChart() {
             displayModal();
         }
     }
+
     function uselessHandler2() {
-      $('#piechart').css('cursor','pointer')
+        $('#piechart').css('cursor', 'pointer')
     }
+
     function uselessHandler3() {
-      $('#piechart').css('cursor','default')
+        $('#piechart').css('cursor', 'default')
     }
 
     chart.draw(data, options);
@@ -415,12 +417,12 @@ function drawBarChart() {
 }
 
 window.onload = function () {
-    document.getElementById("calresult").innerHTML = "Calories: " + yourcalories + ' calories  ';
+    document.getElementById("calresult").innerHTML = "Calories: " + yourcalories + ' cal  ';
     document.getElementById("proresult").innerHTML = "Protein: " + yourprotein + ' g';
     document.getElementById("carbresult").innerHTML = "Carbohydrates: " + yourcarbs + ' g';
     document.getElementById("fatresult").innerHTML = "Fats: " + yourfats + ' g';
 }
 
 function uselessHandler2() {
- $('#chart_div').css('cursor','pointer')
-  }
+    $('#chart_div').css('cursor', 'pointer')
+}
