@@ -411,10 +411,10 @@ $(document).ready(function () {
             "Serving Size: " + selected_meal[selected_menu].serving
         );
 
-        $(foodCalories).html("Calories: " + selected_meal[selected_menu].calories);
-        $(foodProtein).html("Protein: " + selected_meal[selected_menu].protein);
-        $(foodCarbs).html("Carbs: " + selected_meal[selected_menu].carbs);
-        $(foodFats).html("Fats: " + selected_meal[selected_menu].fats);
+        $(foodCalories).html("Calories: " + selected_meal[selected_menu].calories + " cal");
+        $(foodProtein).html("Protein: " + selected_meal[selected_menu].protein + " g");
+        $(foodCarbs).html("Carbs: " + selected_meal[selected_menu].carbs + " g");
+        $(foodFats).html("Fats: " + selected_meal[selected_menu].fats + " g");
     });
 
 
@@ -461,17 +461,27 @@ $(document).ready(function () {
         document.getElementById("stufftoadd").value = 1;
 
 
-
-        /*
-                var listItems = $("#food-list li");
-                for (let li of listItems) {
-                    let item = $(li).text();
-                    list.push(item);
-                }
-
-        */
-
     };
+
+    //change macronutrients information when field has changed
+    $("#stufftoadd").bind('keyup mouseup', function () {
+        var servingSize = document.getElementById("stufftoadd").value;
+        var selected_menu = parseInt($("#selection option:selected").val());
+        var selected_meal = eval($("input[name=options]:checked").attr("id"));
+
+
+
+        $(foodCalories).html("Calories: " + selected_meal[selected_menu].calories * servingSize + " cal");
+        $(foodProtein).html("Protein: " + selected_meal[selected_menu].protein * servingSize + " g");
+        $(foodCarbs).html("Carbs: " + selected_meal[selected_menu].carbs * servingSize + " g");
+        $(foodFats).html("Fats: " + selected_meal[selected_menu].fats * servingSize + " g");
+
+
+
+
+    });
+
+
 
     $("#add-item").click(additem);
 
