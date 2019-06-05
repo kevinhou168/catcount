@@ -62,20 +62,72 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Information</h5>
+                    <h5 class="modal-title">Nutrition Facts</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <h5 id="foodName">Name</h5>
-                    <h6 id="servingText">Serving Size: </h6>
-                    <h6 id="foodCalories">Calories</h6>
-                    <h7 id="foodProtein">Protein</h7>
-                    <h8 id="foodCarbs">Carbs</h8>
-                    <h9 id="foodFats">Fats</h9>
-                    <h10 id="servingSize">Servings: </h10>
-                    <input id="stufftoadd" type=number min="1" placeholder="Serving Size" value="1">
+
+                    <table>
+                        <tr>
+                            <td>
+                                <h6>Serving Size: </h6>
+                            </td>
+                            <td>
+                                <h6 id="servingText"></h6>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+
+
+                            <td>
+                                <h6>Calories:</h6>
+                            </td>
+                            <td>
+                                <h6 id="foodCalories"></h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6>Protein:</h6>
+                            </td>
+                            <td>
+                                <h6 id="foodProtein"></h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6>Carbs:</h6>
+                            </td>
+                            <td>
+                                <h6 id="foodCarbs"></h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6>Fats:</h6>
+                            </td>
+                            <td>
+                                <h6 id="foodFats"></h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6 id="servingSize">Servings: </h6>
+
+                            </td>
+                            <td>
+                                <input id="stufftoadd" type=number min="1" placeholder="Serving Size" value="1">
+                            </td>
+                        </tr>
+
+                    </table>
+
+
                 </div>
                 <div class="modal-footer">
                     <button id="close-item" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

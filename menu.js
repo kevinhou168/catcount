@@ -416,15 +416,33 @@ $(document).ready(function () {
 
         $("#foodName").html(selected_meal[selected_menu].name);
         $(servingText).html(
-            "Serving Size: " + selected_meal[selected_menu].serving
+            selected_meal[selected_menu].serving
         );
 
-        $(foodCalories).html("Calories: " + selected_meal[selected_menu].calories + " cal");
-        $(foodProtein).html("Protein: " + selected_meal[selected_menu].protein + " g");
-        $(foodCarbs).html("Carbs: " + selected_meal[selected_menu].carbs + " g");
-        $(foodFats).html("Fats: " + selected_meal[selected_menu].fats + " g");
+        $(foodCalories).html(selected_meal[selected_menu].calories + " cal");
+        $(foodProtein).html(selected_meal[selected_menu].protein + " g");
+        $(foodCarbs).html(selected_meal[selected_menu].carbs + " g");
+        $(foodFats).html(selected_meal[selected_menu].fats + " g");
     });
 
+
+    //change macronutrients information when field has changed
+    $("#stufftoadd").bind('keyup mouseup', function () {
+        var servingSize = document.getElementById("stufftoadd").value;
+        var selected_menu = parseInt($("#selection option:selected").val());
+        var selected_meal = eval($("input[name=options]:checked").attr("id"));
+
+
+
+        $(foodCalories).html(selected_meal[selected_menu].calories * servingSize + " cal");
+        $(foodProtein).html(selected_meal[selected_menu].protein * servingSize + " g");
+        $(foodCarbs).html(selected_meal[selected_menu].carbs * servingSize + " g");
+        $(foodFats).html(selected_meal[selected_menu].fats * servingSize + " g");
+
+
+
+
+    });
 
     function additem() {
         var servingSize = document.getElementById("stufftoadd").value;
@@ -471,23 +489,7 @@ $(document).ready(function () {
 
     };
 
-    //change macronutrients information when field has changed
-    $("#stufftoadd").bind('keyup mouseup', function () {
-        var servingSize = document.getElementById("stufftoadd").value;
-        var selected_menu = parseInt($("#selection option:selected").val());
-        var selected_meal = eval($("input[name=options]:checked").attr("id"));
 
-
-
-        $(foodCalories).html("Calories: " + selected_meal[selected_menu].calories * servingSize + " cal");
-        $(foodProtein).html("Protein: " + selected_meal[selected_menu].protein * servingSize + " g");
-        $(foodCarbs).html("Carbs: " + selected_meal[selected_menu].carbs * servingSize + " g");
-        $(foodFats).html("Fats: " + selected_meal[selected_menu].fats * servingSize + " g");
-
-
-
-
-    });
 
 
 
