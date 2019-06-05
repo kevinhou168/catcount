@@ -1,10 +1,10 @@
 //breakfast
 var scrambledeggs = {
     name: "Scrambled Eggs",
-    calories: "210",
-    protein: "15 g",
-    carbs: "5 g",
-    fats: "7 g",
+    calories: 210,
+    protein: 15,
+    carbs: 5,
+    fats: 7,
     isVegan: false,
     isVeggie: true,
     isNoGluten: false,
@@ -13,10 +13,10 @@ var scrambledeggs = {
 
 var bacon = {
     name: "Bacon",
-    calories: "80",
-    protein: "7 g",
-    carbs: "5 g",
-    fats: "11 g",
+    calories: 80,
+    protein: 7,
+    carbs: 5,
+    fats: 11,
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
@@ -25,10 +25,10 @@ var bacon = {
 
 var porksausage = {
     name: "Pork Sausage",
-    calories: "90",
-    protein: "8 g",
-    carbs: "5 g",
-    fats: "6 g",
+    calories: 90,
+    protein: 8,
+    carbs: 5,
+    fats: 6,
     isVegan: false,
     isVeggie: false,
     isNoGluten: false,
@@ -37,10 +37,10 @@ var porksausage = {
 
 var sweetpotatoes = {
     name: "Sweet Potatoes",
-    calories: "110",
-    protein: "2 g",
-    carbs: "5 g",
-    fats: "3 g",
+    calories: 110,
+    protein: 2,
+    carbs: 5,
+    fats: 3,
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
@@ -49,10 +49,10 @@ var sweetpotatoes = {
 
 var oats = {
     name: "Oats",
-    calories: "180",
-    protein: "2 g",
-    carbs: "20g",
-    fats: "1 g",
+    calories: 180,
+    protein: 2,
+    carbs: 20,
+    fats: 1,
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
@@ -63,10 +63,10 @@ var oats = {
 
 var grilledchicken = {
     name: "Grilled Chicken",
-    calories: "170",
-    protein: "24 g",
-    carbs: "5 g",
-    fats: "4 g",
+    calories: 170,
+    protein: 24,
+    carbs: 5,
+    fats: 4,
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
@@ -75,10 +75,10 @@ var grilledchicken = {
 
 var porkloin = {
     name: "Pork Loin",
-    calories: "200",
-    protein: "22 g",
-    carbs: "4 g",
-    fats: "8 g",
+    calories: 200,
+    protein: 22,
+    carbs: 4,
+    fats: 8,
     isVegan: false,
     isVeggie: false,
     isNoGluten: true,
@@ -87,10 +87,10 @@ var porkloin = {
 
 var rice = {
     name: "Rice",
-    calories: "130",
-    protein: "1 g",
-    carbs: "10 g",
-    fats: "2 g",
+    calories: 130,
+    protein: 1,
+    carbs: 10,
+    fats: 2,
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
@@ -99,10 +99,10 @@ var rice = {
 
 var corn = {
     name: "Corn",
-    calories: "170",
-    protein: "2 g",
-    carbs: "18 g",
-    fats: "3 g",
+    calories: 170,
+    protein: 2,
+    carbs: 18,
+    fats: 3,
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
@@ -111,10 +111,10 @@ var corn = {
 
 var zucchini = {
     name: "Zucchini",
-    calories: "40",
-    protein: "0 g",
-    carbs: "5 g",
-    fats: "0 g",
+    calories: 40,
+    protein: 0,
+    carbs: 5,
+    fats: 0,
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
@@ -125,10 +125,10 @@ var zucchini = {
 
 var salmon = {
     name: "Salmon",
-    calories: "320",
-    protein: "23 g",
-    carbs: "8 g",
-    fats: "7 g",
+    calories: 320,
+    protein: 23,
+    carbs: 8,
+    fats: 7,
     isVegan: false,
     isVeggie: false,
     isNoGluten: false,
@@ -137,10 +137,10 @@ var salmon = {
 
 var alfredo = {
     name: "Alfredo",
-    calories: "250",
-    protein: "6 g",
-    carbs: "32 g",
-    fats: "5 g",
+    calories: 250,
+    protein: 6,
+    carbs: 32,
+    fats: 5,
     isVegan: false,
     isVeggie: true,
     isNoGluten: true,
@@ -149,10 +149,10 @@ var alfredo = {
 
 var broccoli = {
     name: "Broccoli",
-    calories: "40",
-    protein: "1 g",
-    carbs: "4 g",
-    fats: "0 g",
+    calories: 40,
+    protein: 1,
+    carbs: 4,
+    fats: 0,
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
@@ -161,10 +161,10 @@ var broccoli = {
 
 var pizza = {
     name: "Pizza",
-    calories: "320",
-    protein: "11 g",
-    carbs: "23 g",
-    fats: "17 g",
+    calories: 320,
+    protein: 11,
+    carbs: 23,
+    fats: 17,
     isVegan: false,
     isVeggie: true,
     isNoGluten: false,
@@ -173,10 +173,10 @@ var pizza = {
 
 var greenbeans = {
     name: "Green Beans",
-    calories: "20",
-    protein: "1 g",
-    carbs: "3 g",
-    fats: "1 g",
+    calories: 20,
+    protein: 1,
+    carbs: 3,
+    fats: 1,
     isVegan: true,
     isVeggie: true,
     isNoGluten: true,
@@ -197,7 +197,7 @@ var dinner = [salmon, alfredo, broccoli, pizza, greenbeans];
 
 var studentMenu = [];
 
-var list = [];
+var arrofdicts = [];
 
 
 $(document).ready(function () {
@@ -310,6 +310,8 @@ $(document).ready(function () {
         $("#fats").html("Fats: " + totalfats + " g");
         $("#carbs").html("Carbohydrate: " + totalcarbs + " g");
 
+
+        //check repeated food before this step
         var food =
             "<li class = 'shadow-sm rounded'><span class = 'rounded'><i id = 'trash' class='fa fa-trash'></i></span>" +
             $("#selection option:selected").text() +
