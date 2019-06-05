@@ -353,6 +353,10 @@ $(document).ready(function () {
         $("#selection .food_option").remove();
         console.log("breakfast pressed");
 
+
+        $("#myInput").val('');
+
+
         if ($(this).is(":checked")) {
             for (var i = 0; i < breakfast.length; i++) {
                 var menu = `<option class="food_option" value="${i}" data-toggle="modal" data-target="#foodModal">${
@@ -367,6 +371,8 @@ $(document).ready(function () {
         $("#selection .food_option").remove();
         console.log("lunch pressed");
 
+        $("#myInput").val('');
+
         if ($(this).is(":checked")) {
             for (var i = 0; i < lunch.length; i++) {
                 var menu = `<option class="food_option" value="${i}" data-toggle="modal" data-target="#foodModal">${
@@ -380,6 +386,8 @@ $(document).ready(function () {
     $("#dinner").change(function () {
         $("#selection .food_option").remove();
         console.log("dinner pressed");
+
+        $("#myInput").val('');
 
         if ($(this).is(":checked")) {
             for (var i = 0; i < dinner.length; i++) {
