@@ -302,7 +302,7 @@ var padthai = {
     serving: "230 grams"
 }
 
-var bcsoup = {
+var broccolicheddarsoup = {
     name: "Broccoli Cheddar Soup",
     calories: 280,
     protein: 7,
@@ -311,7 +311,7 @@ var bcsoup = {
     serving: "180 grams"
 }
 
-var chickentender = {
+var chickentenders = {
     name: "Chicken Tenders",
     calories: 250,
     protein: 18,
@@ -330,7 +330,7 @@ var breakfast = [scrambledeggs, bacon, porksausage, sweetpotatoes, oats, eggtaco
 
 var lunch = [grilledchicken, porkloin, rice, corn, zucchini, carbonara, breadstick, ropavieja, hamburgerpatty, frenchfries];
 
-var dinner = [salmon, alfredo, broccoli, pizza, greenbeans, friedrice, cod, spinach, padthai, bcsoup, chickentender];
+var dinner = [salmon, alfredo, broccoli, pizza, greenbeans, friedrice, cod, spinach, padthai, broccolicheddarsoup, chickentenders];
 
 var studentMenu = [];
 
@@ -504,8 +504,14 @@ $(document).ready(function () {
                     0,
                     serving_size_rough.length - 1
                 );
+
+                var compare;
+                //not removing any items because the comparison is wrong
+                //remove_number is stripped so it is never true
                 for (var i = 0; i < studentMenu.length; i++) {
-                    if (studentMenu[i] === remove_number) {
+                    compare = studentMenu[i].name.replace(/ +/g, "").toLowerCase();
+                    console.log("compare:" + compare);
+                    if (compare === remove_number) {
                         studentMenu.splice(i, 1);
                     }
                 }
@@ -537,13 +543,7 @@ $(document).ready(function () {
     });
 
 
-    $("#complete-btn").click(function () {
 
-
-
-
-
-    })
 
 
 
