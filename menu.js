@@ -9,7 +9,6 @@ var scrambledeggs = {
 };
 
 
-
 var bacon = {
     name: "Bacon",
     calories: 80,
@@ -46,30 +45,50 @@ var oats = {
     serving: "40 grams"
 };
 
-
-var sausagelink = {
-    name: "Sausage Link",
-    calories: 200,
-    protein: 5,
-    carbs: 1,
-    fats: 20,
-    serving: "1 sausage"
-
-}
-
 var eggtaco = {
     name: "Egg Taco",
     calories: 170,
     protein: 10,
     carbs: 17,
     fats: 7,
-    serving: "1 taco"
-
+    serving: "1 Taco"
 }
 
+var blueberrymuffin = {
+    name: "Blueberry Muffin",
+    calories: 230,
+    protein: 2,
+    carbs: 17,
+    fats: 1,
+    serving: "1 Muffin"
+}
 
+var tatertots = {
+    name: "Tater Tots",
+    calories: 170,
+    protein: 2,
+    carbs: 21,
+    fats: 9,
+    serving: "170 grams"
+}
 
+var biscuits = {
+    name: "Biscuits",
+    calories: 170,
+    protein: 4,
+    carbs: 15,
+    fats: 10,
+    serving: "1 Biscuit"
+}
 
+var porridge = {
+    name: "Porridge",
+    calories: 125,
+    protein: 2,
+    carbs: 23,
+    fats: 3,
+    serving: "250 grams"
+}
 
 
 //lunch
@@ -140,7 +159,7 @@ var carbonara = {
     protein: 41,
     carbs: 176,
     fats: 26,
-    serving: "1 serving"
+    serving: "150 grams"
 
 }
 
@@ -150,7 +169,7 @@ var breadstick = {
     protein: 5,
     carbs: 22,
     fats: 6,
-    serving: "1 piece"
+    serving: "1 Stick"
 
 }
 var ropavieja = {
@@ -159,7 +178,7 @@ var ropavieja = {
     protein: 34,
     carbs: 21,
     fats: 28,
-    serving: "4 ounce"
+    serving: "113 grams"
 
 }
 
@@ -171,7 +190,7 @@ var hamburgerpatty = {
     protein: 20,
     carbs: 0,
     fats: 14,
-    serving: "1 patty"
+    serving: "110 grams"
 
 }
 
@@ -181,11 +200,8 @@ var frenchfries = {
     protein: 2,
     carbs: 23,
     fats: 11,
-    serving: "1/2 cup"
+    serving: "80 grams"
 }
-
-
-
 
 
 //dinner
@@ -251,14 +267,13 @@ var greenbeans = {
 };
 
 
-
 var totalcal = 0;
 var totalprotein = 0;
 var totalfats = 0;
 var totalcarbs = 0;
 
 // meal times
-var breakfast = [scrambledeggs, bacon, porksausage, sweetpotatoes, oats, sausagelink, eggtaco];
+var breakfast = [scrambledeggs, bacon, porksausage, sweetpotatoes, oats, eggtaco, blueberrymuffin, tatertots, biscuits, porridge];
 
 var lunch = [grilledchicken, porkloin, rice, corn, zucchini, carbonara, breadstick, ropavieja, hamburgerpatty, frenchfries];
 
