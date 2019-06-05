@@ -5,11 +5,10 @@ var scrambledeggs = {
     protein: 15,
     carbs: 5,
     fats: 7,
-    isVegan: false,
-    isVeggie: true,
-    isNoGluten: false,
     serving: "2 Eggs"
 };
+
+
 
 var bacon = {
     name: "Bacon",
@@ -17,9 +16,6 @@ var bacon = {
     protein: 7,
     carbs: 5,
     fats: 11,
-    isVegan: false,
-    isVeggie: false,
-    isNoGluten: true,
     serving: "1 Strip"
 };
 
@@ -29,9 +25,6 @@ var porksausage = {
     protein: 8,
     carbs: 5,
     fats: 6,
-    isVegan: false,
-    isVeggie: false,
-    isNoGluten: false,
     serving: "1 Link"
 };
 
@@ -41,9 +34,6 @@ var sweetpotatoes = {
     protein: 2,
     carbs: 5,
     fats: 3,
-    isVegan: true,
-    isVeggie: true,
-    isNoGluten: true,
     serving: "130 grams"
 };
 
@@ -53,11 +43,34 @@ var oats = {
     protein: 2,
     carbs: 20,
     fats: 1,
-    isVegan: true,
-    isVeggie: true,
-    isNoGluten: true,
     serving: "40 grams"
 };
+
+
+var sausagelink = {
+    name: "Sausage Link",
+    calories: 200,
+    protein: 5,
+    carbs: 1,
+    fats: 20,
+    serving: "1 sausage"
+
+}
+
+var eggtaco = {
+    name: "Egg Taco",
+    calories: 170,
+    protein: 10,
+    carbs: 17,
+    fats: 7,
+    serving: "1 taco"
+
+}
+
+
+
+
+
 
 //lunch
 
@@ -121,6 +134,60 @@ var zucchini = {
     serving: "1 Zucchini, chopped"
 };
 
+var carbonara = {
+    name: "Carbonara",
+    calories: 1110,
+    protein: 41,
+    carbs: 176,
+    fats: 26,
+    serving: "1 serving"
+
+}
+
+var breadstick = {
+    name: "Breadstick",
+    calories: 160,
+    protein: 5,
+    carbs: 22,
+    fats: 6,
+    serving: "1 piece"
+
+}
+var ropavieja = {
+    name: "Ropa Vieja",
+    calories: 500,
+    protein: 34,
+    carbs: 21,
+    fats: 28,
+    serving: "4 ounce"
+
+}
+
+
+
+var hamburgerpatty = {
+    name: "Hamburger Patty",
+    calories: 210,
+    protein: 20,
+    carbs: 0,
+    fats: 14,
+    serving: "1 patty"
+
+}
+
+var frenchfries = {
+    name: "French Fries",
+    calories: 200,
+    protein: 2,
+    carbs: 23,
+    fats: 11,
+    serving: "1/2 cup"
+}
+
+
+
+
+
 //dinner
 
 var salmon = {
@@ -183,21 +250,23 @@ var greenbeans = {
     serving: "110 grams"
 };
 
+
+
 var totalcal = 0;
 var totalprotein = 0;
 var totalfats = 0;
 var totalcarbs = 0;
 
 // meal times
-var breakfast = [scrambledeggs, bacon, porksausage, sweetpotatoes, oats];
+var breakfast = [scrambledeggs, bacon, porksausage, sweetpotatoes, oats, sausagelink, eggtaco];
 
-var lunch = [grilledchicken, porkloin, rice, corn, zucchini];
+var lunch = [grilledchicken, porkloin, rice, corn, zucchini, carbonara, breadstick, ropavieja, hamburgerpatty, frenchfries];
 
 var dinner = [salmon, alfredo, broccoli, pizza, greenbeans];
 
 var studentMenu = [];
 
-var arrofdicts = [];
+
 
 
 $(document).ready(function () {
