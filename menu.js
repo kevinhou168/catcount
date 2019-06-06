@@ -563,6 +563,17 @@ $(document).ready(function () {
     });
 
 
+    $("#complete-btn").click(function () {
+        if (studentMenu.length == 0) {
+            alert("Please add an item");
+
+        } else {
+            window.location = "finishpage.html";
+        }
+
+
+    })
+
 
 
 

@@ -320,7 +320,7 @@ function drawPieChart() {
         'width': 500,
         'height': 300,
         'fontSize': 15,
-        colors: ['#a5c7eb', '#e08994', '#b55fa7'],
+        colors: ['#f28f54', '#ae74a9', '#ee5360'],
         chartArea: {
             left: 195,
             top: 50,
@@ -382,16 +382,16 @@ function drawBarChart() {
   ['Exercise', 'Minutes', {
             role: 'style'
         }],
-  ['Walking', walktime, 'color: #a5c7eb'],
-  ['Swimming', swimtime, 'color: #e08994'],
-  ['Jogging', jogtime, 'color: #b55fa7'],
-  ['Cycling', cycletime, 'color: #4d5bbd']
+  ['Walking', walktime, 'color: #ae74a9'],
+  ['Swimming', swimtime, 'color: #ee5360'],
+  ['Jogging', jogtime, 'color: #ef7368'],
+  ['Cycling', cycletime, 'color: #f28f54']
   ]);
     // Set options for Anthony's pie chart.
     var options = {
         title: 'How to Burn ' + yourcalories + ' calories',
         titleTextStyle: {
-            color: "#5168ED",
+            color: "#252525",
             fontSize: "20"
         },
         // titlePosition: 'none',
