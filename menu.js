@@ -215,7 +215,7 @@ var salmon = {
     isVegan: false,
     isVeggie: false,
     isNoGluten: false,
-    serving: "1 Filet"
+    serving: "1 Fillet"
 };
 
 var alfredo = {
@@ -281,7 +281,7 @@ var cod = {
     protein: 21,
     carbs: 13,
     fats: 12,
-    serving: "1 Filet"
+    serving: "1 Fillet"
 }
 
 var spinach = {

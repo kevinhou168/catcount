@@ -104,3 +104,28 @@
   display: inline-block;
   margin-left: 185px;
 }
+
+.wrapper{
+    text-align: center;
+    margin: 1em;
+}
+
+.againButton {
+  border: none;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #663399;;
+  color: white;
+  border-radius: 15px;
+  outline: none;
+}
+
+.againButton:hover, .againButton:active {
+  background-color: #5B2E7D;
+  color: white;
+  border: none;
+}
