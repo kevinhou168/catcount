@@ -1,0 +1,87 @@
+*
+{
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%
+}
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+.header
+{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 10em;
+  height: 25%;
+  weight: 100%;
+  color: RebeccaPurple;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+
+.buttons
+{
+  height: 75%
+}
+
+.fake-button
+{
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  height: 150px;
+  width: 150px;
+  margin: 35px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 145px;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: #DB7093;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+hr {
+    border: none;
+    margin-top: -1px;
+    height: 1px;
+    background-color: #c0c8c9;
+    background-image: -webkit-linear-gradient(0deg, #fff, #c0c8c9, #fff);
+}
+
+button
+{
+  border: none;
+  background-color: white;
+  align-items: center;
+  outline: none;
+  text-decoration: none;
+}
+
+button:hover
+{
+  background-color: #e5e8e7;
+  border-radius: 15px;
+  cursor: pointer;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+table {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
