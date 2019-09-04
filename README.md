@@ -1,4 +1,4 @@
-# catcount
+# Catcount
 Calorie-counting web application for the Northwestern dining halls. EECS 330: Human-Computer Interaction project. See deployment at: https://catcount.github.io/catcount/
 ## Problem
 - People don’t track calories largely due to the time-consumption and inconvenience
